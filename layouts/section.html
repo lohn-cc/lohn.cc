@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="section wrap page-head">
+  <h1>{{ .Title }}</h1>
+  <div class="prose">{{ .Content }}</div>
+</section>
+<section class="wrap list-body">
+  {{- if .RegularPages }}
+  <ul class="post-list">
+    {{- range .RegularPages }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </li>
+    {{- end }}
+  </ul>
+  {{- else }}
+  <p>No notes published yet. Coming soon:</p>
+  <ul class="topics">{{ range .Params.upcoming }}<li>{{ . }}</li>{{ end }}</ul>
+  {{- end }}
+</section>
+{{ end }}

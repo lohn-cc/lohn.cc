@@ -1,0 +1,12 @@
+- tag: Infrastructure
+  title: Self-hosted mail & web platform
+  text: "A hardened Rocky Linux server hosting email for multiple domains and the websites you're reading now: key-only SSH, firewall and intrusion banning, SELinux enforcing, Mailcow with SPF, DKIM and DMARC, automatic TLS, and git-push deployments."
+- tag: Manufacturing
+  title: Process tracking across three factories
+  text: Co-implemented production process tracking and the supporting IT facilities across Everlao's three factory locations.
+- tag: Hospitality
+  title: Multi-property hotel IT
+  text: IT management across three hotel properties in two cities — Luang Prabang and Vientiane.
+- tag: Security systems
+  title: Bosch knowledge transfer to Laos
+  text: Brought security-systems product knowledge from Robert Bosch Thailand to the team in Laos.

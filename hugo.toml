@@ -1,0 +1,31 @@
+baseURL = "https://www.lohn.cc/"
+locale = "en"
+title = "Lohn"
+disableKinds = ["taxonomy", "term"]
+enableRobotsTXT = true
+timeZone = "Asia/Vientiane"
+
+[params]
+  description = "Lohn builds and runs the IT systems behind hospitals, hotels, factories and research labs in Laos — infrastructure, software, biomedical equipment and facilities."
+  tagline = "IT Manager · Systems Engineer · Biomedical Engineer"
+  email = "lohn@lohn.cc"
+  company = "https://www.vangera.systems/"
+
+  # Google AdSense — leave disabled until the site is approved.
+  # When enabling, the Content-Security-Policy in Caddy must also be relaxed for www.lohn.cc.
+  [params.adsense]
+    enabled = false
+    client = ""          # e.g. "ca-pub-XXXXXXXXXXXXXXXX"
+
+[permalinks]
+  notes = "/notes/:slug/"
+
+[outputs]
+  home = ["html"]
+  section = ["html", "rss"]
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[sitemap]
+  changeFreq = "monthly"

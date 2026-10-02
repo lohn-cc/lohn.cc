@@ -1,0 +1,14 @@
+{{ define "main" }}
+<article class="section wrap page article">
+  <p class="eyebrow"><a href="/notes/">Notes</a> · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
+  <h1>{{ .Title }}</h1>
+  {{- $content := .Content }}
+  {{- if .Store.Get "hasAffiliate" }}
+  <p class="disclosure">This article contains affiliate links (marked <sup>*</sup>). If you buy through them I may earn a small commission, at no extra cost to you.</p>
+  {{- end }}
+  {{ partial "ad-slot.html" (dict "slot" .Params.ad_slot_top) }}
+  <div class="prose">{{ $content }}</div>
+  {{ partial "ad-slot.html" (dict "slot" .Params.ad_slot_bottom) }}
+  <p class="back"><a href="/notes/">← All notes</a></p>
+</article>
+{{ end }}

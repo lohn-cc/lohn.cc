@@ -1,0 +1,3 @@
+{{- /* Affiliate link: {{< aff href="https://partner.example/?ref=lohn" >}}Product name{{< /aff >}} */ -}}
+<a href="{{ .Get "href" }}" rel="sponsored nofollow noopener" target="_blank">{{ .Inner | .Page.RenderString }}</a><sup class="aff-mark" title="Affiliate link">*</sup>
+{{- .Page.Store.Set "hasAffiliate" true -}}

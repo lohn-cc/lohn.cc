@@ -1,0 +1,72 @@
+{{ define "main" }}
+<section class="hero wrap">
+  <p class="eyebrow">{{ site.Params.tagline }}</p>
+  <h1>{{ .Params.heading }}</h1>
+  <p class="lede">{{ .Params.lede }}</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="#experience">See my experience</a>
+    <a class="btn btn-ghost" href="{{ site.Params.company }}">Work with me at Vangera Systems →</a>
+  </div>
+</section>
+
+<section id="about" class="section wrap two-col">
+  <h2>About</h2>
+  <div class="prose">{{ .Content }}</div>
+</section>
+
+<section id="expertise" class="section wrap">
+  <h2>Expertise</h2>
+  <ul class="cards">
+    {{- range hugo.Data.expertise }}
+    <li class="card"><h3>{{ .title }}</h3><p>{{ .text }}</p></li>
+    {{- end }}
+  </ul>
+</section>
+
+<section id="experience" class="section wrap">
+  <h2>Experience</h2>
+  <ol class="timeline">
+    {{- range hugo.Data.experience }}
+    <li>
+      <div class="when">{{ .org }}{{ with .note }} <span>{{ . }}</span>{{ end }}{{ with .years }}<span class="years">{{ . }}</span>{{ end }}</div>
+      <div class="what"><h3>{{ .role }}</h3><p>{{ .text }}</p></div>
+    </li>
+    {{- end }}
+  </ol>
+</section>
+
+<section id="projects" class="section wrap">
+  <h2>Projects</h2>
+  <ul class="cards cards-2">
+    {{- range hugo.Data.projects }}
+    <li class="card project"><p class="tag">{{ .tag }}</p><h3>{{ .title }}</h3><p>{{ .text }}</p></li>
+    {{- end }}
+  </ul>
+</section>
+
+{{- with site.GetPage "/notes" }}
+<section id="notes" class="section wrap two-col">
+  <h2>Notes</h2>
+  <div class="prose">
+    {{- $posts := first 3 .RegularPages }}
+    {{- if $posts }}
+    <ul class="post-list">
+      {{- range $posts }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time></li>
+      {{- end }}
+    </ul>
+    <p><a href="{{ .RelPermalink }}">All notes →</a></p>
+    {{- else }}
+    <p>I'm putting together practical write-ups from the field. Coming soon:</p>
+    <ul class="topics">{{ range .Params.upcoming }}<li>{{ . }}</li>{{ end }}</ul>
+    {{- end }}
+  </div>
+</section>
+{{- end }}
+
+<section id="contact" class="section wrap contact">
+  <h2>Get in touch</h2>
+  <p>Questions, ideas or a project in mind? Send a message, or email <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>.</p>
+  {{ partial "contact-form.html" . }}
+</section>
+{{ end }}

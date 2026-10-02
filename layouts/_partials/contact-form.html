@@ -1,0 +1,25 @@
+<form class="contact-form" method="post" action="/api/contact">
+  <div class="field">
+    <label for="cf-name">Name</label>
+    <input id="cf-name" name="name" type="text" required maxlength="100" autocomplete="name">
+  </div>
+  <div class="field">
+    <label for="cf-email">Email</label>
+    <input id="cf-email" name="email" type="email" required maxlength="254" autocomplete="email">
+  </div>
+  <div class="field field-wide">
+    <label for="cf-message">Message</label>
+    <textarea id="cf-message" name="message" required minlength="10" maxlength="5000" rows="6"></textarea>
+  </div>
+  <div class="hp" aria-hidden="true">
+    <label for="cf-website">Leave this field empty</label>
+    <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+  </div>
+  <div class="field-wide form-foot">
+    <altcha-widget challenge="/api/challenge" auto="onfocus" type="checkbox" hidefooter></altcha-widget>
+    <button class="btn btn-primary" type="submit">Send message</button>
+  </div>
+  <p class="form-note field-wide">Spam protection runs in your browser — no cookies, no tracking. See the <a href="/privacy/">privacy policy</a>.</p>
+</form>
+<link rel="stylesheet" href="/assets/altcha/altcha.css">
+<script type="module" src="/js/contact.js"></script>
