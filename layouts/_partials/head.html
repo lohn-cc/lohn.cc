@@ -11,10 +11,15 @@
 <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14161a" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/styles.css">
+{{- with resources.Get "styles.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{- end }}
 {{- with site.GetPage "/notes" }}{{ with .OutputFormats.Get "rss" }}
 <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }} — Notes">
 {{- end }}{{ end }}
 {{- if and site.Params.adsense.enabled site.Params.adsense.client }}
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.Params.adsense.client }}" crossorigin="anonymous"></script>
+{{- end }}
+{{- if .IsHome }}
+{{ partial "jsonld-person.html" . }}
 {{- end }}

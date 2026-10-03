@@ -10,12 +10,12 @@ timeZone = "Asia/Vientiane"
   nickname = "Lohn"
   description = "Nakhonekham (Lohn) Xongmixay — IT and Facilities Management leader with over two decades of experience across luxury hospitality, healthcare, manufacturing, and research institutions in Laos."
   tagline = "IT & Facilities Management Leader · Systems & Biomedical Engineer"
-  email = "lohn.xongmixay@gmail.com"
-  email_alt = "lohn@lohn.cc"
-  phone = "(+856) 20 288 44289"
+  email = "lohn@lohn.cc"
   location = "Vientiane, Lao PDR"
   linkedin = "https://www.linkedin.com/in/lohn-xongmixay"
   company = "https://www.vangera.systems/"
+  highlights = 3          # bullets shown per role before "Show all"
+  foundationBefore = 2010 # roles starting before this year are grouped under "Foundation years"
 
   # Google AdSense — leave disabled until the site is approved.
   # When enabling, the Content-Security-Policy in Caddy must also be relaxed for www.lohn.cc.
@@ -26,8 +26,15 @@ timeZone = "Asia/Vientiane"
 [permalinks]
   notes = "/notes/:slug/"
 
+# profile.json — machine-readable CV consumed by www.vangera.systems at build time.
+[outputFormats.profile]
+  mediaType = "application/json"
+  baseName = "profile"
+  isPlainText = true
+  notAlternative = true
+
 [outputs]
-  home = ["html"]
+  home = ["html", "profile"]
   section = ["html", "rss"]
 
 [markup.goldmark.renderer]

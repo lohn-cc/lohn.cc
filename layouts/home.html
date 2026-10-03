@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{- $c := partial "career.html" . -}}
+{{- $current := index (where $c.positions "current" true) 0 -}}
 <section class="hero wrap">
   <p class="eyebrow">{{ site.Params.tagline }}</p>
   <h1>{{ site.Params.name }}</h1>
@@ -8,7 +10,6 @@
   <div class="profile-meta">
     <span class="meta-item">📍 {{ site.Params.location }}</span>
     <span class="meta-item">✉️ <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></span>
-    <span class="meta-item">📞 <a href="tel:+8562028844289">{{ site.Params.phone }}</a></span>
     {{ with site.Params.linkedin }}
     <span class="meta-item">💼 <a href="{{ . }}" target="_blank" rel="noopener">LinkedIn: lohn xongmixay</a></span>
     {{ end }}
@@ -23,20 +24,20 @@
 
   <div class="stats-ribbon">
     <div class="stat-card">
-      <span class="stat-val">20+</span>
-      <span class="stat-lbl">Years Field & Executive IT Experience</span>
+      <span class="stat-val">{{ $c.years }}</span>
+      <span class="stat-lbl">Years in IT &amp; facilities, since {{ $c.since }}</span>
     </div>
     <div class="stat-card">
-      <span class="stat-val">6+</span>
-      <span class="stat-lbl">Sectors: Hospitality, Healthcare, Factories, Labs, Telecom & Enterprise</span>
+      <span class="stat-val">{{ $c.organisations }}</span>
+      <span class="stat-lbl">Organisations across hospitality, healthcare, industry &amp; research</span>
     </div>
     <div class="stat-card">
-      <span class="stat-val">3</span>
-      <span class="stat-lbl">Luxury Hotel Pre-Openings & Multi-Property Deployments</span>
+      <span class="stat-val">{{ len $c.sectors }}</span>
+      <span class="stat-lbl">Sectors served</span>
     </div>
     <div class="stat-card">
       <span class="stat-val">BSL-2+</span>
-      <span class="stat-lbl">Research Facility Construction & Systems Oversight</span>
+      <span class="stat-lbl">Research laboratory construction &amp; systems oversight</span>
     </div>
   </div>
 </section>
@@ -51,7 +52,7 @@
       </div>
       <div class="sidebar-item">
         <span class="sidebar-label">Current Role</span>
-        <span class="sidebar-val">IT Manager (Pre-Opening), Avani+ Lanexang Vientiane Hotel</span>
+        <span class="sidebar-val">{{ with $current }}{{ .role }}, {{ .org }}{{ end }}</span>
       </div>
       <div class="sidebar-item">
         <span class="sidebar-label">Core Focus</span>
@@ -94,53 +95,62 @@
 <section id="experience" class="section wrap">
   <div class="section-head">
     <h2>Professional Experience</h2>
-    <p class="section-desc">Comprehensive career history spanning twenty-plus years of technology leadership, infrastructure commissioning, and systems engineering in Laos.</p>
+    <p class="section-desc">{{ $c.years }} years, {{ len $c.positions }} roles and {{ $c.organisations }} organisations — most recent first. Each role shows its key highlights; open "Show all" for the full responsibilities.</p>
   </div>
+
+  <div class="sector-glance" aria-labelledby="glance-title">
+    <h3 id="glance-title">Experience by sector</h3>
+    <ul class="sector-bars">
+      {{- range $c.sectors }}
+      <li>
+        <span class="sb-name">{{ .name }}</span>
+        <span class="sb-track"><span class="sb-bar w-{{ .pct5 }}"></span></span>
+        <span class="sb-val">{{ .years }} yrs · {{ .roles }} {{ cond (eq .roles 1) "role" "roles" }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+
   <ol class="timeline">
-    {{- range hugo.Data.experience.positions }}
-    <li class="timeline-item{{ if .current }} current-item{{ end }}">
-      <div class="when">
-        <div class="period-badge">{{ .period }}{{ if .current }} <span class="live-pill">Active</span>{{ end }}</div>
-        <div class="org-name">{{ .org }}</div>
-        {{ with .group }}<div class="org-group">{{ . }}</div>{{ end }}
-        <div class="org-loc">📍 {{ .location }}</div>
-        {{ with .tag }}<span class="sector-tag">{{ . }}</span>{{ end }}
-      </div>
-      <div class="what">
-        <h3>{{ .role }}</h3>
-        <p class="role-summary">{{ .summary }}</p>
-        {{ with .bullets }}
-        <ul class="role-bullets">
-          {{ range . }}
-          <li>{{ . }}</li>
-          {{ end }}
-        </ul>
-        {{ end }}
-      </div>
-    </li>
+    {{- range where $c.positions "foundation" false }}
+    {{ partial "position.html" . }}
     {{- end }}
   </ol>
 
-  {{ with hugo.Data.experience.early_career }}
-  <div class="early-career-box">
-    <div class="early-head">
-      <h3>Early Career & Foundation (1999 – 2005)</h3>
-      <p>Foundational technical diagnostics, PC assembly, customer training, library operations, and community youth development:</p>
-    </div>
-    <div class="early-cards">
-      {{ range . }}
-      <div class="early-card">
-        <div class="early-meta">
-          <span class="early-period">{{ .period }}</span>
-          <span class="early-loc">📍 {{ .location }}</span>
-        </div>
-        <h4>{{ .role }} · <strong>{{ .org }}</strong></h4>
-        <p>{{ .text }}</p>
+  {{- $foundation := where $c.positions "foundation" true }}
+  {{- if or $foundation hugo.Data.experience.early_career }}
+  <details class="foundation">
+    <summary>
+      <span class="f-title">Foundation years · {{ $c.since }} – {{ sub site.Params.foundationBefore 1 }}</span>
+      <span class="f-sub">{{ len $foundation }} roles in enterprise, public-sector, NGO and security engineering, plus early part-time work</span>
+    </summary>
+    <ol class="timeline">
+      {{- range $foundation }}
+      {{ partial "position.html" . }}
+      {{- end }}
+    </ol>
+    {{ with hugo.Data.experience.early_career }}
+    <div class="early-career-box">
+      <div class="early-head">
+        <h3>Early career (part-time, 1999 – 2005)</h3>
+        <p>Foundational technical diagnostics, PC assembly, customer training, library operations, and community youth development:</p>
       </div>
-      {{ end }}
+      <div class="early-cards">
+        {{ range . }}
+        <div class="early-card">
+          <div class="early-meta">
+            <span class="early-period">{{ .period }}</span>
+            <span class="early-loc">📍 {{ .location }}</span>
+          </div>
+          <h4>{{ .role }} · <strong>{{ .org }}</strong></h4>
+          <p>{{ .text }}</p>
+        </div>
+        {{ end }}
+      </div>
     </div>
-  </div>
-  {{ end }}
+    {{ end }}
+  </details>
+  {{- end }}
 </section>
 
 <section id="credentials" class="section wrap">
@@ -255,8 +265,6 @@
   <p>Questions, consultation requests, or project inquiries? Reach out directly or send a message below.</p>
   <div class="contact-methods">
     <a class="contact-pill" href="mailto:{{ site.Params.email }}">✉️ {{ site.Params.email }}</a>
-    {{ with site.Params.email_alt }}<a class="contact-pill" href="mailto:{{ . }}">✉️ {{ . }}</a>{{ end }}
-    <a class="contact-pill" href="tel:+8562028844289">📞 {{ site.Params.phone }}</a>
     <span class="contact-pill">📍 {{ site.Params.location }}</span>
     {{ with site.Params.linkedin }}
     <a class="contact-pill" href="{{ . }}" target="_blank" rel="noopener">💼 LinkedIn: lohn xongmixay</a>

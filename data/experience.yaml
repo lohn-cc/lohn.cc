@@ -5,7 +5,7 @@ positions:
     org: "Avani+ Lanexang Vientiane Hotel"
     group: "Minor Hotels Group Managed Property"
     location: "Vientiane, Lao PDR"
-    tag: "Hospitality"
+    tag: "Hospitality & F&B"
     summary: "Serve as a key member of the executive pre-opening team, directing complete IT infrastructure deployment, technology commissioning, and operational readiness for the luxury hotel property."
     bullets:
       - "Plan, deploy, and configure core hotel technology platforms in strict adherence to Minor Hotels brand standards and data security guidelines."
@@ -19,7 +19,7 @@ positions:
     org: "Grand View Property"
     group: "Kolao Group"
     location: "Vientiane, Lao PDR"
-    tag: "Retail & F&B"
+    tag: "Hospitality & F&B"
     summary: "Directed and oversaw IT operations, enterprise systems, and technical infrastructure supporting all Food and Beverage (F&B) business units and outlets under the Kolao Group."
     bullets:
       - "Deployed, customized, and maintained Point of Sale (POS) systems, kitchen display systems (KDS), and inventory/recipe management solutions to ensure high operational efficiency."
@@ -31,7 +31,7 @@ positions:
     role: "Freelance IT Consultant / Systems Integrator"
     org: "Self-Employed"
     location: "Vientiane, Lao PDR"
-    tag: "Consulting"
+    tag: "Independent Consulting"
     summary: "Delivered end-to-end system integration services, ensuring seamless interoperability across diverse enterprise platforms."
     bullets:
       - "Deployed and optimized critical business systems (ERP, POS) to enhance operational efficiency."
@@ -44,7 +44,7 @@ positions:
     org: "Huawei Technologies (Lao) Company Limited"
     group: "Outsourced via 108-1009 Group Company Limited"
     location: "Vientiane, Lao PDR"
-    tag: "Enterprise IT"
+    tag: "Enterprise, Public & NGO"
     summary: "Co-managed server and network infrastructure in coordination with Regional Office in Malaysia to ensure high enterprise system reliability."
     bullets:
       - "Implemented physical security solutions including Door Access Control and CCTV systems."
@@ -58,7 +58,7 @@ positions:
     role: "Freelance IT Consultant / Systems Integrator"
     org: "Self-Employed"
     location: "Vientiane, Lao PDR"
-    tag: "Consulting"
+    tag: "Independent Consulting"
     summary: "Provided expert computer system maintenance, diagnostics, troubleshooting, and optimization for corporate and individual clients."
     bullets:
       - "Delivered critical on-site engineering support, acting as the primary local resource to facilitate seamless operations and issue resolution for remote technical teams."
@@ -69,7 +69,7 @@ positions:
     org: "Pullman Luang Prabang"
     group: "Accor Hotels Managed Property · Ownership: YEIG Juzheng Luangprabang Hotel"
     location: "Luang Prabang, Lao PDR"
-    tag: "Hospitality"
+    tag: "Hospitality & F&B"
     summary: "Directed all IT operations and led a team of IT professionals to ensure seamless technology infrastructure across the luxury resort."
     bullets:
       - "Strategically managed the resort's network system across multiple buildings to optimize connectivity and reliability."
@@ -84,7 +84,7 @@ positions:
     org: "Alpilao International Sole Company Limited"
     group: "Ownership: Everbright Headwear China"
     location: "Vientiane, Lao PDR"
-    tag: "Manufacturing"
+    tag: "Manufacturing & Industry"
     summary: "Co-led implementation of manufacturing process tracking systems for cap and apparel production across multiple factory facilities."
     bullets:
       - "Configured specialized factory software for printing, embroidery, and cutting processes."
@@ -99,7 +99,7 @@ positions:
     org: "Avani+ Luang Prabang"
     group: "Minor Hotels Group Managed Property · Ownership: Phusi Hotel Akane Mixed Company Limited"
     location: "Luang Prabang, Lao PDR"
-    tag: "Hospitality"
+    tag: "Hospitality & F&B"
     summary: "Supported overall IT operations and infrastructure management to ensure seamless technology services across the boutique property."
     bullets:
       - "Maintained and configured critical hotel systems including NEC IP Phone infrastructure and LG Pro-Centric IP TV."
@@ -114,7 +114,7 @@ positions:
     org: "Don Chan Palace Hotel and Convention"
     group: "Ownership: Masceana Company Limited"
     location: "Vientiane, Lao PDR"
-    tag: "Hospitality"
+    tag: "Hospitality & F&B"
     summary: "Led and managed a team of 3 IT professionals, overseeing all hotel IT operations and fostering continuous skill development."
     bullets:
       - "Spearheaded significant improvements to the entire networking infrastructure, enhancing reliability, speed, and security across the hotel and convention center."
@@ -141,7 +141,7 @@ positions:
     role: "CTO (Chief Technology Officer)"
     org: "Papaya IT Solution Company Limited"
     location: "Vientiane, Lao PDR"
-    tag: "Leadership"
+    tag: "Security & Technology Services"
     summary: "Directed technical sales operations and managed international supplier relationships to drive technology solutions and business growth."
     bullets:
       - "Led software solution development from conceptualization to deployment, ensuring innovative technical solutions."
@@ -152,7 +152,7 @@ positions:
     role: "IT Manager"
     org: "Lao Friends Hospital for Children"
     location: "Luang Prabang, Lao PDR"
-    tag: "Healthcare IT"
+    tag: "Healthcare & Biomedical"
     summary: "Led and mentored hospital IT staff while executing strategic improvements to hospital infrastructure and clinical workflows."
     bullets:
       - "Collaborated with the Medical Director to define requirements for Enterprise Resource Planning (ERP) system development."
@@ -166,7 +166,7 @@ positions:
     org: "Thai Airways – Laos Office & Ground Operations"
     group: "Ticketing and Agency"
     location: "Vientiane, Lao PDR"
-    tag: "Aviation & Systems Support"
+    tag: "Enterprise, Public & NGO"
     summary: "Delivered specialized computer maintenance and technical support services to Thai Airways' Laos Office and Ground Operations."
     bullets:
       - "Conducted diagnostics, repairs, and upgrades on various computer systems to ensure high availability for ticketing and agency staff."
@@ -197,7 +197,7 @@ positions:
     role: "IT Executive"
     org: "Lao Tobacco Limited"
     location: "Vientiane, Lao PDR"
-    tag: "Enterprise IT"
+    tag: "Manufacturing & Industry"
     summary: "Supported daily corporate IT operations and system integrity, reporting directly to the IT Administrator."
     bullets:
       - "Managed security protocols including virus scans and threat resolution to ensure company data protection."
@@ -211,7 +211,7 @@ positions:
     role: "Product Engineer"
     org: "Eyetech Security Systems"
     location: "Vientiane, Lao PDR"
-    tag: "Security Engineering"
+    tag: "Security & Technology Services"
     summary: "Engineered and commissioned advanced electronic security systems following specialized vendor training in Thailand."
     bullets:
       - "Designed and implemented advanced security systems including CCTV, access control, and intrusion detection solutions."
@@ -225,7 +225,7 @@ positions:
     role: "IT Specialist"
     org: "Lao National Chamber of Commerce and Industry"
     location: "Vientiane, Lao PDR"
-    tag: "Web & Systems"
+    tag: "Enterprise, Public & NGO"
     summary: "Enhanced organizational digital presence and managed institutional IT infrastructure."
     bullets:
       - "Developed and implemented the organization's website to enhance online presence and communication capabilities."
@@ -235,7 +235,7 @@ positions:
     role: "Founder & Lead Computer Technician"
     org: "Self-Employed"
     location: "Vientiane, Lao PDR"
-    tag: "Consulting & Training"
+    tag: "Independent Consulting"
     summary: "Provided independent computer systems consulting, assembly, hardware repairs, and customized digital literacy training."
     bullets:
       - "Provided expert consultation to customers, designing and recommending custom computer systems tailored to their specific needs and budgets."
@@ -248,7 +248,7 @@ positions:
     org: "Vientiane College"
     group: "Ownership: Endymion Limited"
     location: "Vientiane, Lao PDR"
-    tag: "Education IT"
+    tag: "Enterprise, Public & NGO"
     summary: "Managed campus IT infrastructure, network security, and institutional web presence."
     bullets:
       - "Networking systems design, installation and administration including Linux Firewall server and Wireless networking system."
@@ -259,7 +259,7 @@ positions:
     role: "IT Support Technician"
     org: "Cyberia Company Limited"
     location: "Vientiane, Lao PDR"
-    tag: "Technical Support"
+    tag: "Security & Technology Services"
     summary: "Delivered on-site and remote IT support, workstation maintenance, and network troubleshooting for business clients."
     bullets:
       - "Provided expert on-site and remote IT support services to external clients to minimize downtime and enhance productivity."
@@ -271,7 +271,7 @@ positions:
     role: "Technical Assistant"
     org: "Friends International"
     location: "Vientiane, Lao PDR"
-    tag: "Operations & Systems"
+    tag: "Enterprise, Public & NGO"
     summary: "Facilitated office establishment, IT equipment deployment, and multilingual administrative support for international community project."
     bullets:
       - "Setting up the office (purchase and installment of furniture, computer equipment, office supplies)."

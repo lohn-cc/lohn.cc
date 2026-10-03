@@ -1,0 +1,51 @@
+{{- /*
+  Career figures computed from data/experience.yaml — never hard-code these numbers.
+  Parses periods like "Jun 2023 – Jan 2024" or "Jan 2026 – Present".
+  Returns a dict:
+    positions      []dict  each position + start_year, months, foundation (bool)
+    since          int     first year of the career (earliest start)
+    years          int     whole years from `since` to now
+    organisations  int     distinct employers (self-employment excluded)
+    sectors        []dict  {name, roles, months, years, pct5} sorted by months, pct5 = share of the top sector rounded to 5
+  Usage: {{ $c := partial "career.html" . }}
+*/ -}}
+{{- $monthNum := dict "Jan" 1 "Feb" 2 "Mar" 3 "Apr" 4 "May" 5 "Jun" 6 "Jul" 7 "Aug" 8 "Sep" 9 "Oct" 10 "Nov" 11 "Dec" 12 -}}
+{{- $nowIdx := add (mul now.Year 12) (int now.Month) -}}
+{{- $foundationBefore := site.Params.foundationBefore | default 2010 -}}
+{{- $positions := slice -}}
+{{- $since := now.Year -}}
+{{- $orgs := slice -}}
+{{- $sectorMonths := dict -}}
+{{- $sectorRoles := dict -}}
+{{- range hugo.Data.experience.positions -}}
+  {{- $dates := findRE `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})` .period -}}
+  {{- $start := index $dates 0 | default "" -}}
+  {{- $sy := int (index (findRE `\d{4}` $start) 0) -}}
+  {{- $sm := index $monthNum (substr $start 0 3) -}}
+  {{- $endIdx := $nowIdx -}}
+  {{- if and (ge (len $dates) 2) (not .current) -}}
+    {{- $end := index $dates 1 -}}
+    {{- $endIdx = add (mul (int (index (findRE `\d{4}` $end) 0)) 12) (index $monthNum (substr $end 0 3)) -}}
+  {{- end -}}
+  {{- $months := add (sub $endIdx (add (mul $sy 12) $sm)) 1 -}}
+  {{- if lt $sy $since }}{{ $since = $sy }}{{ end -}}
+  {{- if ne .org "Self-Employed" }}{{ $orgs = $orgs | append .org }}{{ end -}}
+  {{- $sector := .tag | default "Other" -}}
+  {{- $sectorMonths = merge $sectorMonths (dict $sector (add (index $sectorMonths $sector | default 0) $months)) -}}
+  {{- $sectorRoles = merge $sectorRoles (dict $sector (add (index $sectorRoles $sector | default 0) 1)) -}}
+  {{- $positions = $positions | append (merge . (dict "start_year" $sy "months" $months "foundation" (lt $sy $foundationBefore))) -}}
+{{- end -}}
+{{- $sectors := slice -}}
+{{- $max := 1 -}}
+{{- range $name, $m := $sectorMonths }}{{ if gt $m $max }}{{ $max = $m }}{{ end }}{{ end -}}
+{{- range $name, $m := $sectorMonths -}}
+  {{- $pct := mul (math.Round (div (mul (float $m) 20) $max)) 5 -}}
+  {{- $sectors = $sectors | append (dict "name" $name "roles" (index $sectorRoles $name) "months" $m "years" (div (math.Round (div (float $m) 1.2)) 10) "pct5" (int $pct)) -}}
+{{- end -}}
+{{- return dict
+    "positions" $positions
+    "since" $since
+    "years" (sub now.Year $since)
+    "organisations" (len (uniq $orgs))
+    "sectors" (sort $sectors "months" "desc")
+-}}
