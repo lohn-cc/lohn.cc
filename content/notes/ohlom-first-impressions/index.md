@@ -2,7 +2,7 @@
 title: "First look at Ohlom: one Lao app for (almost) everything"
 description: "My first impressions of Ohlom, the new all-in-one Lao app for chat, community, video, shopping and everyday services — congratulations to MTS, and a friendly word about the 100+ features."
 date: 2026-10-03T18:00:00+07:00
-draft: true
+draft: false
 slug: "ohlom-first-impressions"
 build:
   publishResources: false
