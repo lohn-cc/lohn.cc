@@ -1,8 +1,12 @@
 ---
-title: "Lohn — IT Manager, Systems Engineer & Biomedical Engineer"
-heading: "I build and run the systems that keep hospitals, hotels, factories and labs working."
-lede: "From servers, networks and email to medical equipment, production tracking and the facilities around them — I've spent my career making technology dependable for the people who rely on it every day."
+title: "Nakhonekham (Lohn) Xongmixay — IT & Facilities Leader · Systems & Biomedical Engineer"
+heading: "Over two decades building, operating, and securing mission-critical IT infrastructure and facilities in Laos."
+lede: "From pre-opening luxury hospitality and pediatric healthcare systems to multi-site factory automation and biosafety research laboratories — leading technical teams, optimizing operations, and delivering dependable technology on time and within budget."
 ---
-I'm Lohn, an IT and engineering professional based in Laos. My work sits where technology meets day-to-day operations: a children's hospital where equipment and systems can't fail, hotels where guests expect everything to just work, factories where production must be tracked across sites, and a research institute where infrastructure supports science.
+I am Nakhonekham (Lohn) Xongmixay, an IT and Facilities Management leader based in Vientiane, Lao PDR, with over two decades of comprehensive hands-on and executive experience. My career centers on designing, implementing, and optimizing complex IT infrastructure while simultaneously managing and improving physical facility operations.
 
-Over the years I've led IT departments, maintained biomedical equipment, managed facilities, and handled knowledge transfer from international partners. Today I share what I've learned here, and I take on projects through my own company, [Vangera Systems](https://www.vangera.systems/).
+Over the past twenty years, I have directed technology deployment and operational readiness across highly demanding environments — including pre-opening technology commissioning for Minor Hotels (Avani+ Lanexang Vientiane, Avani+ Luang Prabang) and Accor (Pullman Luang Prabang), enterprise systems at Huawei Technologies, multi-site apparel manufacturing process tracking at Alpilao / Everbright Headwear, F&B enterprise operations at Kolao Group (Grand View Property), clinical biomedical engineering at Lao Friends Hospital for Children, and BSL-2+ laboratory infrastructure at Institut Pasteur du Laos.
+
+I hold a Higher Diploma in Information Technology Management from Quest College, alongside certifications in IT systems management, web design, and computer hardware diagnostics, plus specialized overseas engineering training in medical device maintenance (MTTS-ASIA, Vietnam) and electronic security systems (Robert Bosch, Thailand).
+
+Today, alongside enterprise leadership roles, I provide independent systems integration, network engineering, and technical consulting through [Vangera Systems](https://www.vangera.systems/).

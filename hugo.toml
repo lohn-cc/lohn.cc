@@ -1,14 +1,20 @@
 baseURL = "https://www.lohn.cc/"
 locale = "en"
-title = "Lohn"
+title = "Nakhonekham (Lohn) Xongmixay"
 disableKinds = ["taxonomy", "term"]
 enableRobotsTXT = true
 timeZone = "Asia/Vientiane"
 
 [params]
-  description = "Lohn builds and runs the IT systems behind hospitals, hotels, factories and research labs in Laos — infrastructure, software, biomedical equipment and facilities."
-  tagline = "IT Manager · Systems Engineer · Biomedical Engineer"
-  email = "lohn@lohn.cc"
+  name = "Nakhonekham Xongmixay"
+  nickname = "Lohn"
+  description = "Nakhonekham (Lohn) Xongmixay — IT and Facilities Management leader with over two decades of experience across luxury hospitality, healthcare, manufacturing, and research institutions in Laos."
+  tagline = "IT & Facilities Management Leader · Systems & Biomedical Engineer"
+  email = "lohn.xongmixay@gmail.com"
+  email_alt = "lohn@lohn.cc"
+  phone = "(+856) 20 288 44289"
+  location = "Vientiane, Lao PDR"
+  linkedin = "https://www.linkedin.com/in/lohn-xongmixay"
   company = "https://www.vangera.systems/"
 
   # Google AdSense — leave disabled until the site is approved.

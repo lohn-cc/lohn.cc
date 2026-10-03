@@ -1,12 +1,29 @@
-- tag: Infrastructure
-  title: Self-hosted mail & web platform
-  text: "A hardened Rocky Linux server hosting email for multiple domains and the websites you're reading now: key-only SSH, firewall and intrusion banning, SELinux enforcing, Mailcow with SPF, DKIM and DMARC, automatic TLS, and git-push deployments."
-- tag: Manufacturing
-  title: Process tracking across three factories
-  text: Co-implemented production process tracking and the supporting IT facilities across Everlao's three factory locations.
-- tag: Hospitality
-  title: Multi-property hotel IT
-  text: IT management across three hotel properties in two cities — Luang Prabang and Vientiane.
-- tag: Security systems
-  title: Bosch knowledge transfer to Laos
-  text: Brought security-systems product knowledge from Robert Bosch Thailand to the team in Laos.
+- tag: Hospitality Pre-Opening
+  title: Luxury Hotel IT Commissioning & Operational Deployment
+  org: Avani+ Lanexang Vientiane Hotel & Pullman Luang Prabang
+  text: "Led pre-opening technology commissioning across luxury properties: deployed Minor Hotels and Accor brand standard networks, integrated Property Management Systems (PMS), Point of Sale (POS), FTTH high-speed connectivity, LG Pro-Centric IPTV, and VoIP telephony."
+
+- tag: Research Infrastructure
+  title: BSL-2+ Laboratory & Enterprise Server Infrastructure
+  org: Institut Pasteur du Laos
+  text: "Supervised electrical and IT cabling construction for BSL-2+ laboratory containment; architected secure FreeBSD server infrastructure for directory services, data sharing, and research applications; installed building-wide biometric/card access control."
+
+- tag: Manufacturing Automation
+  title: Factory Production & RFID Process Tracking
+  org: Alpilao / Everbright Headwear China
+  text: "Co-implemented computerized manufacturing process tracking for apparel production across multiple factory sites; integrated cutting, printing, and embroidery machinery; implemented RFID-based tracking for production workflow and personnel access."
+
+- tag: Healthcare & Biomedical
+  title: Pediatric Hospital Systems & Biomedical Maintenance
+  org: Lao Friends Hospital for Children
+  text: "Installed, calibrated, and maintained critical biomedical medical equipment; supported Emergency Room and Decontamination operations; co-managed hospital ERP digitization and IT asset lifecycle tracking."
+
+- tag: Security Engineering
+  title: Electronic Security Infrastructure & Regional Knowledge Transfer
+  org: Eyetech Security Systems (Robert Bosch)
+  text: "Completed technical training at Robert Bosch Thailand; designed, programmed, and commissioned enterprise-grade CCTV surveillance, access control, and intrusion detection systems for corporate clients in Laos."
+
+- tag: Self-Hosted Systems
+  title: Hardened Linux Mail & Hosting Platform
+  org: Vangera Systems / lohn.cc
+  text: "Hardened Rocky Linux production environment hosting email for multiple domains: key-only SSH, firewall and intrusion banning, SELinux enforcement, Mailcow with SPF/DKIM/DMARC, automated TLS, and git-push deployment pipelines."
