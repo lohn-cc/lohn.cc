@@ -418,3 +418,8 @@ details.foundation[open] > summary { border-bottom: 1px solid var(--line); }
 .f-sub { color: var(--muted); font-size: 15px; }
 details.foundation > .timeline, details.foundation > .early-career-box { margin: 24px; }
 details.foundation > .early-career-box { margin-top: 8px; }
+
+/* Screenshots in articles */
+.shot { margin: 1.8em 0; }
+.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.shot figcaption { margin-top: 8px; color: var(--muted); font-size: 14.5px; text-align: center; }
