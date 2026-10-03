@@ -2,7 +2,7 @@
 title: "Two projects I'm proud of: a research institute's website and a landfill weighbridge billing system"
 description: "Fifteen years apart, both started with the same question: what does the person using this every day actually need? The Institut Pasteur du Laos website (WordPress, since 2011) and Landfill, a Lao/English weighing and billing system built with Flutter."
 date: 2026-10-03
-draft: true
+draft: false
 slug: "pasteur-website-and-landfill-billing"
 build:
   publishResources: false
