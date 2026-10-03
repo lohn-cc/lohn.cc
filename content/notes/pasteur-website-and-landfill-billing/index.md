@@ -4,19 +4,21 @@ description: "Fifteen years apart, both started with the same question: what doe
 date: 2026-10-03
 draft: true
 slug: "pasteur-website-and-landfill-billing"
+build:
+  publishResources: false
 ---
 
-People often ask what kind of work I do. The honest answer is "whatever keeps an organisation running" — networks, servers, hotel systems, medical equipment. But two projects stand out because I built them from the ground up to solve a real problem. One is a website I started in 2011. The other is a desktop application I built in 2025.
+People often ask what kind of work I do. The honest answer is "whatever keeps an organisation running" — networks, servers, hotel systems, medical equipment. But two projects stand out because I built them from the ground up to solve a real problem. One is a website I started in 2011. The other is a desktop application I built in 2025 that now runs a provincial landfill.
 
 ## 1. pasteur.la — the Institut Pasteur du Laos website (since 2011)
 
 ### The context
 
-The [Institut Pasteur du Laos](https://www.pasteur.la/) is an international biomedical research institute in Vientiane. I joined in 2010 — first as Data Manager, then as IT Manager and Building Facility Manager — at a time when the institute was growing: a new BSL-2+ laboratory was under construction, and the institute needed a public face that matched its work.
+The [Institut Pasteur du Laos](https://www.pasteur.la/) is an international biomedical research institute in Vientiane. I joined in 2010 — first as Data Manager, then as IT Manager and Building Facility Manager — at a time when the institute was growing: a new BSL-2+ laboratory was under construction, and the institute's laboratories started operating in December 2011. It needed a public face that matched its work.
 
 ### What I did
 
-- Led the development of the institute's official website on **WordPress** in 2011, and its ongoing maintenance until 2015.
+- Led the development of the institute's official website on **WordPress** in 2011, including its **custom theme**, and its ongoing maintenance until 2015.
 - Supervised the media creation specialist who produced the content and visual material.
 - Set it up so that the people who own the content — researchers and administration — could publish news and updates without needing a developer for every change.
 
@@ -30,7 +32,9 @@ For an organisation whose core business is science, not software, the website pl
 
 ### Fifteen years later
 
-The site is still on WordPress today. It is bilingual (English and French) and covers research units, publications, news, annual reports, recruitment and donations. The design has evolved over the years, but the platform decision made in 2011 still holds.
+The site is still running today on WordPress with the custom theme I built. It is bilingual (English and French) and covers research units, publications, news, annual reports, recruitment and donations — and the platform decision made in 2011 still holds.
+
+{{< screenshot src="pasteur-la-2026.jpg" alt="The Institut Pasteur du Laos website homepage in 2026, with the institute's logo, building photo, navigation menu and the 'What is IPL?' page" caption="[pasteur.la](https://www.pasteur.la/) in 2026 — still on the WordPress platform and custom theme from 2011." >}}
 
 ### What I learned
 
@@ -46,7 +50,11 @@ At a landfill, every truck is a transaction: it is weighed, the waste type and c
 
 ### What I built
 
-**Landfill** is a Windows desktop application, developed under my label *Peak Innovation Technologies*, that handles the whole flow from the weighbridge to the accounts:
+**Landfill** is a Windows desktop application developed by **[Vangera Systems](https://www.vangera.systems/)** that handles the whole flow from the weighbridge to the accounts. It is in use at the landfill site of the **Pakxan Urban Development and Administration Authority** in Bolikhamxay Province.
+
+{{< screenshot src="landfill-login.png" alt="Landfill login screen showing the logo and name of the Pakxan Urban Development and Administration Authority landfill site, in Lao" caption="Sign-in screen, branded for the Pakxan Urban Development and Administration Authority landfill." >}}
+
+What it does:
 
 - **Live scale integration** — reads the weight directly from the weighing indicator over a serial connection, and copes with the different formats scales send (for example `+00000000B` or `90kg`).
 - **Billing** — by weight and waste type, or price-per-load by vehicle type; a waiting list for trucks; bill cancellation with a mandatory comment.
@@ -55,10 +63,14 @@ At a landfill, every truck is a transaction: it is weighed, the waste type and c
 - **Accounting and reports** — date-range totals (week, month, year to date), exports to PDF, CSV and Excel.
 - **Printing** on A4, A5 and thermal receipt printers.
 - **Lao and English** throughout the interface.
-- **Roles and control** — Super User, Manager and Officer roles; supervisor approval for sensitive operations; an audit log of important events.
+- **Roles and control** — Super User, Manager and Officer roles, each with its own home screen; supervisor approval for sensitive operations; an audit log of important events.
 - **Internal-use automation** — the system recognises the company's own vehicles and waste and applies the right payment method automatically.
 - **Practice mode** — staff can train on realistic scenarios without touching real data.
 - **Backup and restore** of the master data.
+
+{{< screenshot src="landfill-billing.png" alt="Landfill billing screen in Lao: live scale reading, vehicle and customer selection, weight-in and weight-out fields, deductions, payment methods (cash, transfer, mixed, credit) and the waiting list" caption="The billing screen: live scale reading, weight in/out, deductions, payment method and the waiting list of trucks to be weighed out." >}}
+
+{{< screenshot src="landfill-accounting.png" alt="Landfill accounting screen in Lao listing bills with plate number, waste type, weights, amount, payment method and status, with Excel export and print buttons" caption="Accounting: bills for a date range with weights, amounts and payment split, exportable to Excel and printable." >}}
 
 ### How it's built
 

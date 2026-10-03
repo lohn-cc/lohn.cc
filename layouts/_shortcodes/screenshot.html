@@ -1,0 +1,14 @@
+{{- /* Responsive screenshot from the page bundle, converted to WebP at build time.
+  Usage: {{< screenshot src="image.png" alt="What it shows" caption="Optional caption" crop="1266x362 Top" >}}
+  crop (optional) uses Hugo's Crop spec, e.g. to cut personal data off an image. */ -}}
+{{- $src := .Get "src" -}}
+{{- $img := .Page.Resources.Get $src -}}
+{{- if not $img }}{{ errorf "screenshot: %q not found in page bundle of %s" $src .Page.File.Path }}{{ end -}}
+{{- with .Get "crop" }}{{ $img = $img.Crop . }}{{ end -}}
+{{- if gt $img.Width 1200 }}{{ $img = $img.Resize "1200x webp q82" }}{{ else }}{{ $img = $img.Process "webp q82" }}{{ end -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- if not $alt }}{{ errorf "screenshot: alt text is required (%s)" $src }}{{ end -}}
+<figure class="shot">
+  <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+  {{- with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>
