@@ -1,12 +1,45 @@
-- title: Infrastructure & systems administration
-  text: Servers, networks, email and web hosting — designed, secured, documented and kept running.
-- title: Healthcare IT & biomedical engineering
-  text: Hospital IT together with the care and upkeep of medical equipment, where reliability is not optional.
-- title: Hospitality IT
-  text: IT management for hotel properties in Luang Prabang and Vientiane, keeping guest-facing and back-office systems running.
-- title: Manufacturing & process tracking
-  text: Production process tracking and IT facilities rolled out across multiple factory locations.
-- title: Facility management
-  text: Looking after the buildings and services that the technology — and the people — depend on.
-- title: Knowledge transfer & training
-  text: Bringing know-how from international vendors and partners to local teams, and making it stick.
+- category: IT Infrastructure & Systems
+  description: High-availability network architecture, enterprise server environments, systems administration, and physical connectivity.
+  items:
+    - name: Network & Systems Architecture
+      details: Network design, security, performance optimization, server administration, Wi-Fi & GSM signal optimization, and Fiber-to-the-Hotel (FTTH).
+    - name: Hospitality & Retail Systems
+      details: Property Management Systems (PMS configuration & support, e.g., Comanche), Point of Sale (POS), IPTV (e.g., LG Pro-Centric), IP Telephony / PABX (NEC, Panasonic), and digital signage.
+    - name: Enterprise & Industrial Software
+      details: ERP implementations, factory & production tracking software, workflow process automation, barcode and RFID systems.
+    - name: Hardware & Maintenance
+      details: Hardware diagnostics, component-level troubleshooting & repair, preventative maintenance schedules, and lifecycle planning.
+
+- category: Facilities & Operations Management
+  description: Hands-on management of physical facilities, laboratory environments, production tracking, and critical biomedical operations.
+  items:
+    - name: Building Systems & Maintenance
+      details: Facility maintenance, repairs, electrical and IT cabling oversight, power reliability, and continuous infrastructure upgrades.
+    - name: Process Tracking & Automation
+      details: RFID-based production and personnel tracking, automated data sheets, and shipping workflow digitization across factory sites.
+    - name: Clinical & Laboratory Support
+      details: Emergency Room (ER) biomedical technical support, decontamination procedures, and BSL-2+ containment facility readiness.
+
+- category: Leadership & Project Management
+  description: Driving technology commissioning, hotel pre-opening readiness, multi-property operations, CAPEX/OPEX budgeting, and cross-functional team leadership.
+  items:
+    - name: Pre-Opening IT Infrastructure
+      details: End-to-end hotel pre-opening technology commissioning (Minor Hotels brand standards), vendor acceptance testing, and brand-standard operations for Minor Hotels and Accor properties.
+    - name: Team Leadership & Mentoring
+      details: Direct supervision of IT, facility, and support personnel; technical mentoring, recruitment, and local capacity building.
+    - name: Vendor & Contract Negotiation
+      details: Vendor evaluation, RFP development, contract negotiations, service level agreements (SLAs), and procurement management.
+    - name: Budget Planning & Cost Optimization
+      details: IT CAPEX and OPEX budget planning, strategic allocation, and cost-effective resource utilization across multiple properties.
+    - name: Policy, Governance & Security
+      details: IT Standard Operating Procedures (SOPs), cybersecurity policies, access control governance, and backup / disaster recovery protocols.
+
+- category: Technical Support & Training
+  description: Multi-tier engineering support, systematic troubleshooting, documentation, and tailored user training programs.
+  items:
+    - name: Advanced Multi-Tier Troubleshooting
+      details: Rapid-response diagnostics, root-cause analysis, system stability enhancements, and preventative maintenance programs.
+    - name: Helpdesk & End-User Support
+      details: Hands-on desktop, application, and network support for corporate, medical, factory, and hospitality personnel.
+    - name: User Training & Capacity Building
+      details: Custom in-person and group staff training programs, SOP documentation, and international partner knowledge transfer to local teams.

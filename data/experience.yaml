@@ -1,20 +1,298 @@
-# Most recent first. Add "years: 2020 – 2024" to any entry to show dates.
-- org: Children's hospital
-  role: IT Manager & Biomedical Engineer
-  text: Responsible for hospital IT and biomedical engineering — keeping clinical systems, networks and medical equipment reliable for patients and staff.
-- org: Everlao
-  note: (Everbright Headwear, China)
-  role: IT Supervisor
-  text: Managed IT facilities across three factory locations and co-implemented production process tracking.
-- org: Avani+ Luang Prabang · Pullman Luang Prabang · Avani+ Lanexang Vientiane
-  role: IT Manager
-  text: Managed IT for hotel properties in Luang Prabang and Vientiane.
-- org: Institut Pasteur du Laos
-  role: IT Manager & Facility Manager
-  text: Ran IT and facilities for a biomedical research institute.
-- org: Lao Tobacco
-  role: IT Executive
-  text: Supported company IT systems and operations.
-- org: Eyetech Security Systems
-  role: Product Engineer
-  text: Handled knowledge transfer of security systems from Robert Bosch Thailand to Laos.
+positions:
+  - period: "Jan 2026 – Present"
+    current: true
+    role: "IT Manager (Pre-Opening Team)"
+    org: "Avani+ Lanexang Vientiane Hotel"
+    group: "Minor Hotels Group Managed Property"
+    location: "Vientiane, Lao PDR"
+    tag: "Hospitality & F&B"
+    summary: "Serve as a key member of the executive pre-opening team, directing complete IT infrastructure deployment, technology commissioning, and operational readiness for the luxury hotel property."
+    bullets:
+      - "Plan, deploy, and configure core hotel technology platforms in strict adherence to Minor Hotels brand standards and data security guidelines."
+      - "Oversee full integration of Property Management Systems (PMS), Point of Sale (POS), High-Speed Internet Access (HSIA/Wi-Fi), IPTV systems, and VoIP telephony infrastructure."
+      - "Manage IT capital expenditure (CAPEX) budgets, vendor contracts, procurement, and acceptance testing across guest rooms, administrative offices, and F&B facilities."
+      - "Establish IT Standard Operating Procedures (SOPs), cybersecurity policies, access controls, and backup/disaster recovery protocols."
+      - "Develop and deliver comprehensive technology training programs for onboarding management and operational hotel personnel."
+
+  - period: "Jun 2025 – Dec 2025"
+    role: "IT Manager — Food & Beverage Business Group"
+    org: "Grand View Property"
+    group: "Kolao Group"
+    location: "Vientiane, Lao PDR"
+    tag: "Hospitality & F&B"
+    summary: "Directed and oversaw IT operations, enterprise systems, and technical infrastructure supporting all Food and Beverage (F&B) business units and outlets under the Kolao Group."
+    bullets:
+      - "Deployed, customized, and maintained Point of Sale (POS) systems, kitchen display systems (KDS), and inventory/recipe management solutions to ensure high operational efficiency."
+      - "Maintained high network reliability, secure payment gateway integrations, and continuous connectivity across dine-in, takeaway, and corporate operations."
+      - "Managed IT vendors and software service agreements, negotiating cost-effective support contracts and guaranteeing rapid SLA response times."
+      - "Implemented routine preventative maintenance programs and delivered hands-on technical training to outlet managers and service staff."
+
+  - period: "Feb 2025 – May 2025"
+    role: "Freelance IT Consultant / Systems Integrator"
+    org: "Self-Employed"
+    location: "Vientiane, Lao PDR"
+    tag: "Independent Consulting"
+    summary: "Delivered end-to-end system integration services, ensuring seamless interoperability across diverse enterprise platforms."
+    bullets:
+      - "Deployed and optimized critical business systems (ERP, POS) to enhance operational efficiency."
+      - "Conducted network diagnostics and implemented strategic improvements to maximize connectivity performance."
+      - "Resolved complex system issues through advanced troubleshooting and proactive configuration enhancements."
+      - "Developed custom websites and multiplatform native applications tailored to specific client business requirements."
+
+  - period: "Jun 2024 – Jan 2025"
+    role: "IT Specialist"
+    org: "Huawei Technologies (Lao) Company Limited"
+    group: "Outsourced via 108-1009 Group Company Limited"
+    location: "Vientiane, Lao PDR"
+    tag: "Enterprise, Public & NGO"
+    summary: "Co-managed server and network infrastructure in coordination with Regional Office in Malaysia to ensure high enterprise system reliability."
+    bullets:
+      - "Implemented physical security solutions including Door Access Control and CCTV systems."
+      - "Configured and deployed computing devices with necessary OS and software for end-users."
+      - "Provided hardware diagnostics, repair services, and comprehensive troubleshooting to minimize downtime."
+      - "Delivered expert helpdesk support and conducted training sessions to enhance user proficiency."
+      - "Collaborated on customer solution integration projects to ensure successful delivery and client satisfaction."
+      - "Managed technical aspects of teleconferences and events, including photographic documentation."
+
+  - period: "Feb 2024 – May 2024"
+    role: "Freelance IT Consultant / Systems Integrator"
+    org: "Self-Employed"
+    location: "Vientiane, Lao PDR"
+    tag: "Independent Consulting"
+    summary: "Provided expert computer system maintenance, diagnostics, troubleshooting, and optimization for corporate and individual clients."
+    bullets:
+      - "Delivered critical on-site engineering support, acting as the primary local resource to facilitate seamless operations and issue resolution for remote technical teams."
+      - "Ensured reliable hardware performance and system availability through hands-on diagnostics and fine-tuned configurations."
+
+  - period: "Jun 2023 – Jan 2024"
+    role: "IT Manager"
+    org: "Pullman Luang Prabang"
+    group: "Accor Hotels Managed Property · Ownership: YEIG Juzheng Luangprabang Hotel"
+    location: "Luang Prabang, Lao PDR"
+    tag: "Hospitality & F&B"
+    summary: "Directed all IT operations and led a team of IT professionals to ensure seamless technology infrastructure across the luxury resort."
+    bullets:
+      - "Strategically managed the resort's network system across multiple buildings to optimize connectivity and reliability."
+      - "Administered critical hotel servers and the Property Management System (PMS) to maintain data integrity and operational efficiency."
+      - "Provided technical support for guests and event functions, ensuring exceptional service delivery."
+      - "Developed and implemented user training programs to improve staff proficiency across hotel departments."
+      - "Managed IT budget and vendor relationships, negotiating contracts to ensure cost-effective resource allocation."
+      - "Mentored IT team members to foster skill enhancement and professional growth."
+
+  - period: "Jan 2020 – Jun 2023"
+    role: "IT Supervisor"
+    org: "Alpilao International Sole Company Limited"
+    group: "Ownership: Everbright Headwear China"
+    location: "Vientiane, Lao PDR"
+    tag: "Manufacturing & Industry"
+    summary: "Co-led implementation of manufacturing process tracking systems for cap and apparel production across multiple factory facilities."
+    bullets:
+      - "Configured specialized factory software for printing, embroidery, and cutting processes."
+      - "Supervised a team of IT staff while providing cross-functional support to HR, Admin, Payroll, and Engineering departments."
+      - "Automated data processes for shipping operations and implemented RFID tracking for production control and staff access."
+      - "Directed training programs for production staff on new software applications to improve adoption and efficiency."
+      - "Managed server infrastructure, network security, and user account administration across corporate platforms (WeCom, Alibaba Cloud)."
+      - "Maintained barcode systems and related hardware to ensure accurate product labeling and inventory management."
+
+  - period: "Apr 2018 – Nov 2019"
+    role: "Assistant IT Manager"
+    org: "Avani+ Luang Prabang"
+    group: "Minor Hotels Group Managed Property · Ownership: Phusi Hotel Akane Mixed Company Limited"
+    location: "Luang Prabang, Lao PDR"
+    tag: "Hospitality & F&B"
+    summary: "Supported overall IT operations and infrastructure management to ensure seamless technology services across the boutique property."
+    bullets:
+      - "Maintained and configured critical hotel systems including NEC IP Phone infrastructure and LG Pro-Centric IP TV."
+      - "Led Wi-Fi network enhancement initiatives for hotel expansions to optimize guest and staff connectivity."
+      - "Implemented The Coffee Club system integration for food and beverage operations."
+      - "Collaborated with telecommunication providers to develop and implement Fiber-to-the-Hotel (FTTH) internet solutions."
+      - "Assisted with server administration, network management, and Property Management System (PMS) maintenance."
+      - "Delivered technical support for guests and staff while participating in vendor management and IT procurement."
+
+  - period: "Mar 2017 – Apr 2018"
+    role: "IT Manager"
+    org: "Don Chan Palace Hotel and Convention"
+    group: "Ownership: Masceana Company Limited"
+    location: "Vientiane, Lao PDR"
+    tag: "Hospitality & F&B"
+    summary: "Led and managed a team of 3 IT professionals, overseeing all hotel IT operations and fostering continuous skill development."
+    bullets:
+      - "Spearheaded significant improvements to the entire networking infrastructure, enhancing reliability, speed, and security across the hotel and convention center."
+      - "Initiated and executed comprehensive projects to optimize Wi-Fi and GSM signal coverage, ensuring seamless connectivity for guests and staff throughout the expansive property."
+      - "Oversaw the continuous maintenance, configuration, and optimization of the Property Management System (PMS) powered by Comanche software, ensuring accurate guest data and efficient hotel operations."
+      - "Managed and controlled the IT department budget, optimizing expenditures and ensuring alignment with financial objectives."
+      - "Provided dedicated IT support and technical assistance for all client events and conventions, ensuring seamless technology integration and execution."
+
+  - period: "Oct 2016 – Mar 2017"
+    role: "Biomedical Engineer"
+    org: "Lao Friends Hospital for Children"
+    location: "Luang Prabang, Lao PDR"
+    tag: "Healthcare & Biomedical"
+    summary: "Maintained critical biomedical equipment and clinical systems following specialized overseas medical device training."
+    bullets:
+      - "Completed specialized overseas training in biomedical equipment maintenance and management."
+      - "Installed, calibrated, and maintained diverse medical equipment to ensure optimal functionality for patient care."
+      - "Conducted comprehensive training for hospital staff on equipment usage, safety protocols, and basic troubleshooting."
+      - "Transferred technical knowledge to local staff to build sustainable internal capacity."
+      - "Co-managed ERP system development project to digitize and streamline hospital processes."
+      - "Provided essential biomedical support to Emergency Room and Decontamination teams for critical care initiatives."
+
+  - period: "May 2016 – Sep 2016"
+    role: "CTO (Chief Technology Officer)"
+    org: "Papaya IT Solution Company Limited"
+    location: "Vientiane, Lao PDR"
+    tag: "Security & Technology Services"
+    summary: "Directed technical sales operations and managed international supplier relationships to drive technology solutions and business growth."
+    bullets:
+      - "Led software solution development from conceptualization to deployment, ensuring innovative technical solutions."
+      - "Developed strategic price quotations for customers to ensure competitive positioning and meet client requirements."
+      - "Optimized after-sales service team to deliver exceptional customer support and maintain client satisfaction."
+
+  - period: "Jul 2015 – Mar 2016"
+    role: "IT Manager"
+    org: "Lao Friends Hospital for Children"
+    location: "Luang Prabang, Lao PDR"
+    tag: "Healthcare & Biomedical"
+    summary: "Led and mentored hospital IT staff while executing strategic improvements to hospital infrastructure and clinical workflows."
+    bullets:
+      - "Collaborated with the Medical Director to define requirements for Enterprise Resource Planning (ERP) system development."
+      - "Implemented comprehensive IT asset management system to improve inventory control and lifecycle management."
+      - "Conducted targeted training sessions for hospital staff to enhance technical proficiency."
+      - "Managed IT budget allocation to optimize resource utilization and infrastructure capabilities."
+      - "Provided essential hardware troubleshooting and repair to ensure continuous operation of critical hospital systems."
+
+  - period: "Feb 2015 – Jun 2015"
+    role: "Freelance Computer Maintenance Specialist"
+    org: "Thai Airways – Laos Office & Ground Operations"
+    group: "Ticketing and Agency"
+    location: "Vientiane, Lao PDR"
+    tag: "Enterprise, Public & NGO"
+    summary: "Delivered specialized computer maintenance and technical support services to Thai Airways' Laos Office and Ground Operations."
+    bullets:
+      - "Conducted diagnostics, repairs, and upgrades on various computer systems to ensure high availability for ticketing and agency staff."
+      - "Implemented preventative maintenance routines and optimized configurations to enhance system performance and extend hardware lifespan."
+      - "Supported critical operational workflows by ensuring reliable IT infrastructure for agency and ticketing functions."
+
+  - period: "Feb 2010 – Jan 2015"
+    role: "IT Manager & Building Facility Manager"
+    group: "Progressed from Data Manager"
+    org: "Institut Pasteur du Laos"
+    location: "Vientiane, Lao PDR"
+    tag: "Research & Facilities"
+    summary: "Directed IT systems, infrastructure construction oversight, and comprehensive building facility operations for the leading international biomedical research institute."
+    bullets:
+      - "Initiated engagement as Data Manager (Feb 2010), collecting crucial research data from project sites, including the Nam Theun 2 co-project in Nakai district, Khammouane Province."
+      - "Monitored the construction of the new BSL-2+ laboratory and office facilities (Nov 2010), specifically ensuring technical wiring standards for electrical and IT systems."
+      - "Designed and implemented robust server infrastructure utilizing open-source software (FreeBSD) for authentication, file sharing, and application services."
+      - "Managed IT budget allocation and system implementation, optimizing resource utilization for technology initiatives."
+      - "Deployed and maintained access control systems for the entire building and laboratory doors, enhancing biosafety and security protocols."
+      - "Configured and managed the Panasonic PABX system, ensuring reliable internal and external communication."
+      - "Supervised a media creation specialist and led the development and ongoing maintenance of the institute's official website (pasteur.la)."
+      - "Managed the contract and utilization of satellite phones and emergency GPS devices, ensuring critical communication for field operations."
+      - "Oversaw collaboration with outsource solution providers for the development and management of the research database system."
+      - "Managed building facilities, supervising security guards and housekeeping teams to maintain a safe and sterile research environment."
+      - "Monitored overseas staff satisfaction and compiled reports for the Director, addressing staff issues to foster a positive working environment."
+
+  - period: "Jun 2009 – Jan 2010"
+    role: "IT Executive"
+    org: "Lao Tobacco Limited"
+    location: "Vientiane, Lao PDR"
+    tag: "Manufacturing & Industry"
+    summary: "Supported daily corporate IT operations and system integrity, reporting directly to the IT Administrator."
+    bullets:
+      - "Managed security protocols including virus scans and threat resolution to ensure company data protection."
+      - "Performed manual tape backups and data restoration services to maintain business continuity."
+      - "Conducted targeted training sessions for end-users to enhance software proficiency."
+      - "Executed regular maintenance for IT equipment to optimize performance and extend hardware lifespan."
+      - "Assisted engineering department with computerized machinery maintenance to support production processes."
+      - "Managed IT maintenance contracts to ensure vendor compliance with service level agreements."
+
+  - period: "Jul 2008 – Apr 2009"
+    role: "Product Engineer"
+    org: "Eyetech Security Systems"
+    location: "Vientiane, Lao PDR"
+    tag: "Security & Technology Services"
+    summary: "Engineered and commissioned advanced electronic security systems following specialized vendor training in Thailand."
+    bullets:
+      - "Designed and implemented advanced security systems including CCTV, access control, and intrusion detection solutions."
+      - "Completed specialized technical training from overseas vendors to gain expertise in Robert Bosch security technologies."
+      - "Performed system programming, configuration, and thorough commissioning to ensure optimal integration."
+      - "Provided technical consulting to sales teams to support customer acquisition and solution development."
+      - "Conducted comprehensive product training for customers to enhance system understanding and satisfaction."
+      - "Transferred specialized knowledge to local staff to build internal technical capabilities."
+
+  - period: "Jul 2007 – May 2008"
+    role: "IT Specialist"
+    org: "Lao National Chamber of Commerce and Industry"
+    location: "Vientiane, Lao PDR"
+    tag: "Enterprise, Public & NGO"
+    summary: "Enhanced organizational digital presence and managed institutional IT infrastructure."
+    bullets:
+      - "Developed and implemented the organization's website to enhance online presence and communication capabilities."
+      - "Managed comprehensive computer maintenance program to ensure optimal system performance and reliability."
+
+  - period: "Jan 2007 – Jun 2007"
+    role: "Founder & Lead Computer Technician"
+    org: "Self-Employed"
+    location: "Vientiane, Lao PDR"
+    tag: "Independent Consulting"
+    summary: "Provided independent computer systems consulting, assembly, hardware repairs, and customized digital literacy training."
+    bullets:
+      - "Provided expert consultation to customers, designing and recommending custom computer systems tailored to their specific needs and budgets."
+      - "Performed comprehensive software installations, including operating systems, applications, and drivers, ensuring optimal system functionality."
+      - "Conducted advanced troubleshooting and repairs for a wide range of computer hardware and software issues."
+      - "Developed and delivered customized computer training courses, including Computer Technician fundamentals and Microsoft Office proficiency."
+
+  - period: "Jun 2005 – Dec 2006"
+    role: "IT Manager"
+    org: "Vientiane College"
+    group: "Ownership: Endymion Limited"
+    location: "Vientiane, Lao PDR"
+    tag: "Enterprise, Public & NGO"
+    summary: "Managed campus IT infrastructure, network security, and institutional web presence."
+    bullets:
+      - "Networking systems design, installation and administration including Linux Firewall server and Wireless networking system."
+      - "Computer hardware and software installation and maintenance across administrative and academic facilities."
+      - "Design, setup and administration for adsvientiane.com website."
+
+  - period: "May 2005 – Jun 2005"
+    role: "IT Support Technician"
+    org: "Cyberia Company Limited"
+    location: "Vientiane, Lao PDR"
+    tag: "Security & Technology Services"
+    summary: "Delivered on-site and remote IT support, workstation maintenance, and network troubleshooting for business clients."
+    bullets:
+      - "Provided expert on-site and remote IT support services to external clients to minimize downtime and enhance productivity."
+      - "Performed comprehensive diagnostics and repairs for hardware and software systems."
+      - "Configured and maintained client workstations, peripherals, and business applications."
+      - "Resolved network connectivity issues to ensure reliable IT environments across diverse businesses."
+
+  - period: "May 2004 – Jul 2005"
+    role: "Technical Assistant"
+    org: "Friends International"
+    location: "Vientiane, Lao PDR"
+    tag: "Enterprise, Public & NGO"
+    summary: "Facilitated office establishment, IT equipment deployment, and multilingual administrative support for international community project."
+    bullets:
+      - "Setting up the office (purchase and installment of furniture, computer equipment, office supplies)."
+      - "Translating administrative documents and project interviews carried out to select personnel."
+      - "Designing visual assets and T-shirts for project personnel."
+
+early_career:
+  - period: "Mar 2001 – Dec 2005 (Part-time)"
+    role: "Computer Technician"
+    org: "Max MV Computer Shop"
+    location: "Vientiane, Lao PDR"
+    text: "Customer consultation, custom PC builds, operating system and driver installations, and hardware repairs."
+
+  - period: "Jan 2002 – May 2005 (Part-time)"
+    role: "Night Librarian and Receptionist"
+    org: "Vientiane College (Endymion Limited)"
+    location: "Vientiane, Lao PDR"
+    text: "Managed evening library operations, customer inquiries, and student registration."
+
+  - period: "Sep 1999 – Dec 2004 (Part-time)"
+    role: "Volunteering for Green Ant Project"
+    org: "Participatory Development Training Center (PDETC)"
+    location: "Vientiane, Lao PDR"
+    text: "Children outreach activities, organic farming education, and youth community programs."

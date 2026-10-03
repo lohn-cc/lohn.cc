@@ -14,26 +14,24 @@ Tone: first person ("I"), clear, practical, modest and factual. No hype, no buzz
 
 ## 2. Facts — do not invent anything
 
-Only state facts that are already in this repo or that the owner gives you. **Never invent** dates, years,
-numbers, metrics, achievements, client names, certifications, degrees, testimonials or quotes.
-If a section needs a fact you don't have, leave a clearly marked TODO in the content and ask the owner.
+The **data files are the single source of truth** for the owner's career: `data/experience.yaml`,
+`data/credentials.yaml`, `data/projects.yaml`, `data/expertise.yaml` and `content/_index.md`.
+Only state facts that are in these files or that the owner gives you. **Never invent** dates, numbers, metrics,
+achievements, client names, certifications, testimonials or quotes. If something is missing, add a clearly marked
+TODO and ask the owner.
 
-Known career history (most recent first, order still to be confirmed by the owner):
-
-| Organisation | Role | What is known |
-|---|---|---|
-| A children's hospital (name not yet given) | IT Manager & Biomedical Engineer | Hospital IT + biomedical equipment |
-| Everlao (Everbright Headwear, China — spelling to confirm) | IT Supervisor | IT facilities across 3 factory locations; co-implemented production process tracking |
-| Avani+ Luang Prabang, Pullman Luang Prabang, Avani+ Lanexang Vientiane | IT Manager | Hotel IT, multiple properties, two cities |
-| Institut Pasteur du Laos | IT Manager & Facility Manager | IT and facilities for a research institute |
-| Lao Tobacco | IT Executive | Company IT |
-| Eyetech Security Systems | Product Engineer | Knowledge transfer from Robert Bosch Thailand to Laos |
-
-Open questions to ask the owner before filling in: full display name, years for each role, the children's
-hospital's name, exact city, education, certifications, languages, technologies, photo, LinkedIn/GitHub links,
-whether a Lao-language version is wanted.
-
-Do not use other organisations' logos or brand assets. Mention employers by name in text only.
+- **Never hard-code career numbers** (years, organisation count, sector years). They are computed from
+  `data/experience.yaml` by `layouts/_partials/career.html`, so they stay correct when the CV changes.
+- Only **Avani+ Lanexang Vientiane** was a hotel **pre-opening**; Pullman Luang Prabang and Avani+ Luang Prabang were
+  operations roles. Don't describe them as pre-openings.
+- **Privacy:** do not publish the owner's phone number or personal Gmail. Public contact = contact form,
+  `lohn@lohn.cc`, LinkedIn.
+- Sector tags (`tag:` in experience.yaml) use exactly these 7 values: Hospitality & F&B, Healthcare & Biomedical,
+  Research & Facilities, Manufacturing & Industry, Enterprise, Public & NGO, Security & Technology Services,
+  Independent Consulting.
+- Period format must stay `Mon YYYY – Mon YYYY` or `Mon YYYY – Present` (the career partial parses it).
+  Order bullets by importance — the first `params.highlights` (3) are shown, the rest sit behind "Show all".
+- Do not use other organisations' logos or brand assets. Mention employers by name in text only.
 
 ## 3. Tech stack and constraints
 
@@ -46,7 +44,8 @@ Do not use other organisations' logos or brand assets. Mention employers by name
 - Use current APIs: `hugo.Data` (not `.Site.Data`), `site.Language.Locale`, `locale` in config (not `languageCode`).
 - CI builds with `hugo --gc --minify --panicOnWarning` — **any Hugo warning fails the deploy**. Always build locally
   with the same flags before committing.
-- Plain CSS in `static/styles.css` with CSS custom properties; light + dark mode via `prefers-color-scheme`.
+- Plain CSS in `assets/styles.css`, built by Hugo as `styles.min.<hash>.css` (fingerprinted + SRI) so browsers never
+  use a stale copy — never link a fixed `/styles.css` URL. Light + dark mode via `prefers-color-scheme`.
 - System font stacks only — **no web fonts, no Google Fonts, no external CDNs**.
 
 ### Content Security Policy (enforced by the server — you cannot change it from this repo)
@@ -58,7 +57,7 @@ object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 
 
 This means:
 - **No inline `<script>`** blocks or `onclick=` handlers. All JS goes in files under `static/js/`.
-- **No inline `style="…"` attributes** and no `<style>` blocks. All CSS goes in `static/styles.css`.
+- **No inline `style="…"` attributes** and no `<style>` blocks. All CSS goes in `assets/styles.css`.
 - **No external resources** (scripts, styles, fonts, images, iframes, embeds, analytics, YouTube, Google Maps…).
   Images must be committed to the repo (`static/images/` or page bundles) — prefer WebP/AVIF, always set width/height and `alt`.
 - If a feature genuinely needs an external resource, **stop and tell the owner** — the CSP must be changed on the server first.
@@ -69,17 +68,22 @@ This means:
 |---|---|
 | Site config, params, AdSense switch | `hugo.toml` |
 | Home headline, lede, About text | `content/_index.md` |
-| Expertise cards | `data/expertise.yaml` |
-| Experience timeline (`years:` optional) | `data/experience.yaml` |
+| Competencies | `data/expertise.yaml` |
+| Experience timeline (positions + early_career) | `data/experience.yaml` |
+| Education, certifications, training, licenses | `data/credentials.yaml` |
 | Projects | `data/projects.yaml` |
+| Computed career figures (years, sectors, organisations) | `layouts/_partials/career.html` |
+| One timeline entry (highlights + "Show all") | `layouts/_partials/position.html` |
+| Search-engine Person data (home only) | `layouts/_partials/jsonld-person.html` |
+| Machine-readable profile for vangera.systems | `layouts/home.profile.json` → `/profile.json` |
 | Notes section intro + "upcoming" topics | `content/notes/_index.md` |
 | Articles | `content/notes/<slug>.md` → `/notes/<slug>/` |
 | Privacy policy | `content/privacy.md` |
 | Form result pages | `content/contact/thanks.md`, `content/contact/error.md` |
 | Page frame / head / header / footer | `layouts/baseof.html`, `layouts/_partials/*.html` |
-| Styles | `static/styles.css` |
+| Styles | `assets/styles.css` |
 
-Design tokens (in `static/styles.css`): background `#f7f5f0` / dark `#14161a`, ink `#1d1f23`, accent teal `#0f766e`
+Design tokens (in `assets/styles.css`): background `#f7f5f0` / dark `#14161a`, ink `#1d1f23`, accent teal `#0f766e`
 (dark `#5eead4`), serif headings (`--serif`), system sans body (`--sans`), radius 14px. Keep the warm, editorial feel.
 
 ## 5. Writing Notes (articles)
@@ -113,6 +117,13 @@ Never add raw affiliate links. Only recommend products honestly and in context.
   (1) AdSense approval, (2) a Google-certified consent banner (CMP) for EEA/UK/CH visitors, (3) updating
   `content/privacy.md`, (4) an `ads.txt` in `static/`, (5) the owner relaxing the CSP on the server.
   Do not enable it on your own.
+
+## 5b. profile.json — consumed by www.vangera.systems
+
+`https://www.lohn.cc/profile.json` (template `layouts/home.profile.json`) is fetched by the vangera.systems build to
+render its "Founder's track record". Treat it as a public API, **schema version 1**: you may add keys, but do not
+rename or remove existing keys (`person`, `summary`, `sectors`, `positions`, `projects`, `education`, `training`,
+`certifications`) without updating vangera.systems at the same time. Never put the phone number or private email in it.
 
 ## 6. Contact form — do not break this contract
 

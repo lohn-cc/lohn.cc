@@ -1,45 +1,241 @@
 {{ define "main" }}
+{{- $c := partial "career.html" . -}}
+{{- $current := index (where $c.positions "current" true) 0 -}}
 <section class="hero wrap">
   <p class="eyebrow">{{ site.Params.tagline }}</p>
-  <h1>{{ .Params.heading }}</h1>
+  <h1>{{ site.Params.name }}</h1>
+  <p class="hero-subtitle">{{ .Params.heading }}</p>
   <p class="lede">{{ .Params.lede }}</p>
+
+  <div class="profile-meta">
+    <span class="meta-item">📍 {{ site.Params.location }}</span>
+    <span class="meta-item">✉️ <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></span>
+    {{ with site.Params.linkedin }}
+    <span class="meta-item">💼 <a href="{{ . }}" target="_blank" rel="noopener">LinkedIn: lohn xongmixay</a></span>
+    {{ end }}
+  </div>
+
   <div class="actions">
-    <a class="btn btn-primary" href="#experience">See my experience</a>
-    <a class="btn btn-ghost" href="{{ site.Params.company }}">Work with me at Vangera Systems →</a>
+    <a class="btn btn-primary" href="#experience">Explore Experience</a>
+    <a class="btn btn-ghost" href="#competencies">Core Competencies</a>
+    <a class="btn btn-ghost" href="#credentials">Credentials</a>
+    <a class="btn btn-ghost" href="{{ site.Params.company }}" target="_blank" rel="noopener">Vangera Systems →</a>
+  </div>
+
+  <div class="stats-ribbon">
+    <div class="stat-card">
+      <span class="stat-val">{{ $c.years }}</span>
+      <span class="stat-lbl">Years in IT &amp; facilities, since {{ $c.since }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">{{ $c.organisations }}</span>
+      <span class="stat-lbl">Organisations across hospitality, healthcare, industry &amp; research</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">{{ len $c.sectors }}</span>
+      <span class="stat-lbl">Sectors served</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">BSL-2+</span>
+      <span class="stat-lbl">Research laboratory construction &amp; systems oversight</span>
+    </div>
   </div>
 </section>
 
 <section id="about" class="section wrap two-col">
-  <h2>About</h2>
+  <div>
+    <h2>About</h2>
+    <div class="about-sidebar-card">
+      <div class="sidebar-item">
+        <span class="sidebar-label">Full Name</span>
+        <span class="sidebar-val">{{ site.Params.name }} (Lohn)</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="sidebar-label">Current Role</span>
+        <span class="sidebar-val">{{ with $current }}{{ .role }}, {{ .org }}{{ end }}</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="sidebar-label">Core Focus</span>
+        <span class="sidebar-val">Infrastructure Commissioning, Biomedical Systems, Facility Operations</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="sidebar-label">Location</span>
+        <span class="sidebar-val">{{ site.Params.location }}</span>
+      </div>
+    </div>
+  </div>
   <div class="prose">{{ .Content }}</div>
 </section>
 
-<section id="expertise" class="section wrap">
-  <h2>Expertise</h2>
-  <ul class="cards">
+<section id="competencies" class="section wrap">
+  <div class="section-head">
+    <h2>Core Competencies & Skills</h2>
+    <p class="section-desc">Over two decades of cross-disciplinary expertise spanning IT engineering, physical plant operations, and project leadership.</p>
+  </div>
+  <div class="competencies-grid">
     {{- range hugo.Data.expertise }}
-    <li class="card"><h3>{{ .title }}</h3><p>{{ .text }}</p></li>
+    <div class="competency-card">
+      <div class="comp-head">
+        <h3>{{ .category }}</h3>
+        <p class="comp-desc">{{ .description }}</p>
+      </div>
+      <ul class="comp-list">
+        {{ range .items }}
+        <li class="comp-item">
+          <strong>{{ .name }}</strong>
+          <span>{{ .details }}</span>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
     {{- end }}
-  </ul>
+  </div>
 </section>
 
 <section id="experience" class="section wrap">
-  <h2>Experience</h2>
+  <div class="section-head">
+    <h2>Professional Experience</h2>
+    <p class="section-desc">{{ $c.years }} years, {{ len $c.positions }} roles and {{ $c.organisations }} organisations — most recent first. Each role shows its key highlights; open "Show all" for the full responsibilities.</p>
+  </div>
+
+  <div class="sector-glance" aria-labelledby="glance-title">
+    <h3 id="glance-title">Experience by sector</h3>
+    <ul class="sector-bars">
+      {{- range $c.sectors }}
+      <li>
+        <span class="sb-name">{{ .name }}</span>
+        <span class="sb-track"><span class="sb-bar w-{{ .pct5 }}"></span></span>
+        <span class="sb-val">{{ .years }} yrs · {{ .roles }} {{ cond (eq .roles 1) "role" "roles" }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+
   <ol class="timeline">
-    {{- range hugo.Data.experience }}
-    <li>
-      <div class="when">{{ .org }}{{ with .note }} <span>{{ . }}</span>{{ end }}{{ with .years }}<span class="years">{{ . }}</span>{{ end }}</div>
-      <div class="what"><h3>{{ .role }}</h3><p>{{ .text }}</p></div>
-    </li>
+    {{- range where $c.positions "foundation" false }}
+    {{ partial "position.html" . }}
     {{- end }}
   </ol>
+
+  {{- $foundation := where $c.positions "foundation" true }}
+  {{- if or $foundation hugo.Data.experience.early_career }}
+  <details class="foundation">
+    <summary>
+      <span class="f-title">Foundation years · {{ $c.since }} – {{ sub site.Params.foundationBefore 1 }}</span>
+      <span class="f-sub">{{ len $foundation }} roles in enterprise, public-sector, NGO and security engineering, plus early part-time work</span>
+    </summary>
+    <ol class="timeline">
+      {{- range $foundation }}
+      {{ partial "position.html" . }}
+      {{- end }}
+    </ol>
+    {{ with hugo.Data.experience.early_career }}
+    <div class="early-career-box">
+      <div class="early-head">
+        <h3>Early career (part-time, 1999 – 2005)</h3>
+        <p>Foundational technical diagnostics, PC assembly, customer training, library operations, and community youth development:</p>
+      </div>
+      <div class="early-cards">
+        {{ range . }}
+        <div class="early-card">
+          <div class="early-meta">
+            <span class="early-period">{{ .period }}</span>
+            <span class="early-loc">📍 {{ .location }}</span>
+          </div>
+          <h4>{{ .role }} · <strong>{{ .org }}</strong></h4>
+          <p>{{ .text }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </details>
+  {{- end }}
+</section>
+
+<section id="credentials" class="section wrap">
+  <div class="section-head">
+    <h2>Education, Certifications & Training</h2>
+    <p class="section-desc">Formal qualifications, specialized international vendor training, vocational certifications, and government licenses.</p>
+  </div>
+  <div class="credentials-grid">
+    {{ with hugo.Data.credentials.education }}
+    <div class="cred-card">
+      <div class="cred-badge">Education</div>
+      <h3>Higher Education</h3>
+      <ul class="cred-list">
+        {{ range . }}
+        <li>
+          <div class="cred-title">{{ .degree }}</div>
+          <div class="cred-sub">{{ .institution }} · {{ .location }} ({{ .year }})</div>
+          {{ with .details }}<p class="cred-detail">{{ . }}</p>{{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ with hugo.Data.credentials.certifications }}
+    <div class="cred-card">
+      <div class="cred-badge">Certified</div>
+      <h3>Certifications & Competitions</h3>
+      <ul class="cred-list">
+        {{ range . }}
+        <li>
+          <div class="cred-title">{{ .title }}</div>
+          <div class="cred-sub">{{ .issuer }}{{ with .location }} · {{ . }}{{ end }} ({{ .year }})</div>
+          {{ with .type }}<span class="cred-pill">{{ . }}</span>{{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ with hugo.Data.credentials.training }}
+    <div class="cred-card">
+      <div class="cred-badge">Engineering</div>
+      <h3>Specialized Professional Training</h3>
+      <ul class="cred-list">
+        {{ range . }}
+        <li>
+          <div class="cred-title">{{ .title }}</div>
+          <div class="cred-sub">{{ .provider }} · {{ .location }} ({{ .year }})</div>
+          {{ with .focus }}<p class="cred-detail">{{ . }}</p>{{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    <div class="cred-card">
+      <div class="cred-badge">Qualifications</div>
+      <h3>Licenses & Additional Credentials</h3>
+      <ul class="cred-list">
+        {{ range hugo.Data.credentials.licenses }}
+        <li>
+          <div class="cred-title">{{ .title }}</div>
+          <div class="cred-sub">{{ .authority }} · {{ .location }} ({{ .year }})</div>
+          {{ with .details }}<p class="cred-detail">{{ . }}</p>{{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section id="projects" class="section wrap">
-  <h2>Projects</h2>
+  <div class="section-head">
+    <h2>Key Projects & Milestones</h2>
+    <p class="section-desc">Demonstrated systems commissioning, clinical integrations, and industrial deployments delivered across Laos.</p>
+  </div>
   <ul class="cards cards-2">
     {{- range hugo.Data.projects }}
-    <li class="card project"><p class="tag">{{ .tag }}</p><h3>{{ .title }}</h3><p>{{ .text }}</p></li>
+    <li class="card project">
+      <p class="tag">{{ .tag }}</p>
+      <h3>{{ .title }}</h3>
+      {{ with .org }}<p class="project-org"><strong>{{ . }}</strong></p>{{ end }}
+      <p>{{ .text }}</p>
+    </li>
     {{- end }}
   </ul>
 </section>
@@ -66,7 +262,14 @@
 
 <section id="contact" class="section wrap contact">
   <h2>Get in touch</h2>
-  <p>Questions, ideas or a project in mind? Send a message, or email <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>.</p>
+  <p>Questions, consultation requests, or project inquiries? Reach out directly or send a message below.</p>
+  <div class="contact-methods">
+    <a class="contact-pill" href="mailto:{{ site.Params.email }}">✉️ {{ site.Params.email }}</a>
+    <span class="contact-pill">📍 {{ site.Params.location }}</span>
+    {{ with site.Params.linkedin }}
+    <a class="contact-pill" href="{{ . }}" target="_blank" rel="noopener">💼 LinkedIn: lohn xongmixay</a>
+    {{ end }}
+  </div>
   {{ partial "contact-form.html" . }}
 </section>
 {{ end }}

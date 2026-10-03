@@ -1,0 +1,27 @@
+{{- /* Public, machine-readable profile for www.vangera.systems. Schema version 1 — keep keys stable. No phone/private email. */ -}}
+{{- $c := partial "career.html" . -}}
+{{- $positions := slice -}}
+{{- range $c.positions -}}
+  {{- $positions = $positions | append (dict
+      "period" .period "start_year" .start_year "months" .months "current" (.current | default false)
+      "role" .role "org" .org "group" (.group | default "") "location" .location "sector" .tag
+      "summary" .summary "highlights" (first site.Params.highlights (.bullets | default slice))) -}}
+{{- end -}}
+{{- $sectors := slice -}}
+{{- range $c.sectors }}{{ $sectors = $sectors | append (dict "name" .name "roles" .roles "years" .years) }}{{ end -}}
+{{- $cred := hugo.Data.credentials -}}
+{{- jsonify (dict "indent" "  ") (dict
+    "schema" 1
+    "generated" (now.Format "2006-01-02T15:04:05Z07:00")
+    "person" (dict
+        "name" site.Params.name "nickname" site.Params.nickname "tagline" site.Params.tagline
+        "location" site.Params.location "email" site.Params.email "url" site.BaseURL
+        "linkedin" site.Params.linkedin "company" site.Params.company)
+    "summary" (dict "since" $c.since "years" $c.years "organisations" $c.organisations "roles" (len $c.positions))
+    "sectors" $sectors
+    "positions" $positions
+    "projects" hugo.Data.projects
+    "education" $cred.education
+    "training" $cred.training
+    "certifications" $cred.certifications
+) -}}

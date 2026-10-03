@@ -1,0 +1,31 @@
+{{- /* One timeline entry. Input: a position from partial "career.html". */ -}}
+{{- $n := site.Params.highlights | default 3 -}}
+{{- $bullets := .bullets | default slice -}}
+{{- $y := div .months 12 }}{{ $m := mod .months 12 -}}
+<li class="timeline-item{{ if .current }} current-item{{ end }}">
+  <div class="when">
+    <div class="period-badge">{{ .period }}{{ if .current }} <span class="live-pill">Current</span>{{ end }}</div>
+    <div class="duration">{{ with $y }}{{ . }} yr{{ if gt . 1 }}s{{ end }}{{ end }}{{ if and $y $m }} {{ end }}{{ with $m }}{{ . }} mo{{ if gt . 1 }}s{{ end }}{{ end }}</div>
+    <div class="org-name">{{ .org }}</div>
+    {{ with .group }}<div class="org-group">{{ . }}</div>{{ end }}
+    <div class="org-loc">📍 {{ .location }}</div>
+    {{ with .tag }}<span class="sector-tag">{{ . }}</span>{{ end }}
+  </div>
+  <div class="what">
+    <h3>{{ .role }}</h3>
+    <p class="role-summary">{{ .summary }}</p>
+    {{- with first $n $bullets }}
+    <ul class="role-bullets highlights">
+      {{- range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+    {{- end }}
+    {{- if gt (len $bullets) $n }}
+    <details class="more">
+      <summary>Show all {{ len $bullets }} responsibilities</summary>
+      <ul class="role-bullets">
+        {{- range after $n $bullets }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </details>
+    {{- end }}
+  </div>
+</li>
