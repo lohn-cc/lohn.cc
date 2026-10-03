@@ -8,7 +8,7 @@
     <div class="duration">{{ with $y }}{{ . }} yr{{ if gt . 1 }}s{{ end }}{{ end }}{{ if and $y $m }} {{ end }}{{ with $m }}{{ . }} mo{{ if gt . 1 }}s{{ end }}{{ end }}</div>
     <div class="org-name">{{ .org }}</div>
     {{ with .group }}<div class="org-group">{{ . }}</div>{{ end }}
-    <div class="org-loc">📍 {{ .location }}</div>
+    <div class="org-loc">{{ partial "icon.html" "pin" }}{{ .location }}</div>
     {{ with .tag }}<span class="sector-tag">{{ . }}</span>{{ end }}
   </div>
   <div class="what">

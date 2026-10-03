@@ -1,0 +1,21 @@
+{{- /* Inline SVG line icons (24px grid, stroke = currentColor). Usage: {{ partial "icon.html" "mail" }} */ -}}
+{{- $p := dict
+  "pin" `<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>`
+  "mail" `<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/>`
+  "linkedin" `<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V17M8 7.5v.01M12 17v-6.5M12 13.5a2.5 2.5 0 0 1 5 0V17"/>`
+  "arrow-right" `<path d="M5 12h14M13 6l6 6-6 6"/>`
+  "external" `<path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>`
+  "sun" `<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>`
+  "moon" `<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>`
+  "menu" `<path d="M4 7h16M4 12h16M4 17h16"/>`
+  "close" `<path d="M6 6l12 12M18 6 6 18"/>`
+  "code" `<path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>`
+  "server" `<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>`
+  "network" `<rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2h12v2"/>`
+  "health" `<rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/>`
+  "compass" `<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/>`
+  "check" `<path d="m5 12.5 4.5 4.5L19 7.5"/>`
+-}}
+{{- with index $p . -}}
+<svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{{ . | safeHTML }}</svg>
+{{- else -}}{{ errorf "icon.html: unknown icon %q" . }}{{- end -}}

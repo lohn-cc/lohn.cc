@@ -8,18 +8,16 @@
   <p class="lede">{{ .Params.lede }}</p>
 
   <div class="profile-meta">
-    <span class="meta-item">📍 {{ site.Params.location }}</span>
-    <span class="meta-item">✉️ <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></span>
+    <span class="meta-item">{{ partial "icon.html" "pin" }}{{ site.Params.location }}</span>
+    <span class="meta-item">{{ partial "icon.html" "mail" }}<a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></span>
     {{ with site.Params.linkedin }}
-    <span class="meta-item">💼 <a href="{{ . }}" target="_blank" rel="noopener">LinkedIn: lohn xongmixay</a></span>
+    <span class="meta-item">{{ partial "icon.html" "linkedin" }}<a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a></span>
     {{ end }}
   </div>
 
   <div class="actions">
-    <a class="btn btn-primary" href="#experience">Explore Experience</a>
-    <a class="btn btn-ghost" href="#competencies">Core Competencies</a>
-    <a class="btn btn-ghost" href="#credentials">Credentials</a>
-    <a class="btn btn-ghost" href="{{ site.Params.company }}" target="_blank" rel="noopener">Vangera Systems →</a>
+    <a class="btn btn-primary" href="#experience">Explore my experience</a>
+    <a class="btn btn-ghost" href="{{ site.Params.company }}">Work with me at Vangera Systems {{ partial "icon.html" "arrow-right" }}</a>
   </div>
 
   <div class="stats-ribbon">
@@ -140,7 +138,7 @@
         <div class="early-card">
           <div class="early-meta">
             <span class="early-period">{{ .period }}</span>
-            <span class="early-loc">📍 {{ .location }}</span>
+            <span class="early-loc">{{ partial "icon.html" "pin" }}{{ .location }}</span>
           </div>
           <h4>{{ .role }} · <strong>{{ .org }}</strong></h4>
           <p>{{ .text }}</p>
@@ -251,7 +249,7 @@
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time></li>
       {{- end }}
     </ul>
-    <p><a href="{{ .RelPermalink }}">All notes →</a></p>
+    <p><a class="more-link" href="{{ .RelPermalink }}">All notes {{ partial "icon.html" "arrow-right" }}</a></p>
     {{- else }}
     <p>I'm putting together practical write-ups from the field. Coming soon:</p>
     <ul class="topics">{{ range .Params.upcoming }}<li>{{ . }}</li>{{ end }}</ul>
@@ -264,10 +262,10 @@
   <h2>Get in touch</h2>
   <p>Questions, consultation requests, or project inquiries? Reach out directly or send a message below.</p>
   <div class="contact-methods">
-    <a class="contact-pill" href="mailto:{{ site.Params.email }}">✉️ {{ site.Params.email }}</a>
-    <span class="contact-pill">📍 {{ site.Params.location }}</span>
+    <a class="contact-pill" href="mailto:{{ site.Params.email }}">{{ partial "icon.html" "mail" }}{{ site.Params.email }}</a>
+    <span class="contact-pill">{{ partial "icon.html" "pin" }}{{ site.Params.location }}</span>
     {{ with site.Params.linkedin }}
-    <a class="contact-pill" href="{{ . }}" target="_blank" rel="noopener">💼 LinkedIn: lohn xongmixay</a>
+    <a class="contact-pill" href="{{ . }}" target="_blank" rel="noopener">{{ partial "icon.html" "linkedin" }}LinkedIn</a>
     {{ end }}
   </div>
   {{ partial "contact-form.html" . }}

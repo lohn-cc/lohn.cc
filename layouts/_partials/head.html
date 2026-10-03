@@ -1,5 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{- with resources.Get "js/site.js" | minify | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
+{{- end }}
 {{- $title := cond .IsHome .Title (printf "%s — %s" .Title site.Title) }}
 <title>{{ $title }}</title>
 <meta name="description" content="{{ or .Description .Params.description site.Params.description }}">

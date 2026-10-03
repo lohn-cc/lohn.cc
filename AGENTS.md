@@ -48,6 +48,19 @@ TODO and ask the owner.
   use a stale copy — never link a fixed `/styles.css` URL. Light + dark mode via `prefers-color-scheme`.
 - System font stacks only — **no web fonts, no Google Fonts, no external CDNs**.
 
+### Design system (UI refinement, Oct 2026)
+
+- **Colours only via tokens** in `assets/styles.css` (`--bg`, `--surface`, `--ink`, `--muted`, `--line`, `--accent`, `--accent-soft`…).
+  Never hard-code colours in components and never add new `@media (prefers-color-scheme: dark)` rules —
+  dark mode is the two token blocks at the top (automatic **and** `:root[data-theme="dark"]` for the manual toggle).
+  Every text colour pair must meet WCAG AA (4.5:1 for normal text); dark-mode text is deliberately softened (~12–14:1).
+- **Typography:** all sans-serif (`--display` = `--sans`); body 18px; no text smaller than 13px (13px only for short uppercase labels).
+- **Icons:** use `{{ partial "icon.html" "name" }}` (inline SVG, `currentColor`). No emoji as icons.
+  Available: pin, mail, linkedin, arrow-right, external, sun, moon, menu, close, code, server, network, health, compass, check.
+- **JavaScript:** only `assets/js/site.js` (theme toggle + mobile menu), loaded fingerprinted in `<head>`. The site must still
+  work without it (links wrap on small screens, theme follows the device).
+- **Hierarchy:** at most one primary and one secondary button per section; tap targets ≥ 44px.
+
 ### Content Security Policy (enforced by the server — you cannot change it from this repo)
 
 ```

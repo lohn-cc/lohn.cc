@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="/" aria-label="Nakhonekham (Lohn) Xongmixay — home"><span class="mono">L</span>lohn.cc</a>
-    <nav aria-label="Main">
+    <nav id="site-nav" aria-label="Main">
       <ul>
         <li><a href="/#about">About</a></li>
         <li><a href="/#competencies">Competencies</a></li>
@@ -12,5 +12,13 @@
         <li><a href="/#contact">Contact</a></li>
       </ul>
     </nav>
+    <div class="header-tools">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+        <span class="i-moon">{{ partial "icon.html" "moon" }}</span><span class="i-sun">{{ partial "icon.html" "sun" }}</span>
+      </button>
+      <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="i-menu">{{ partial "icon.html" "menu" }}</span><span class="i-close">{{ partial "icon.html" "close" }}</span><span class="menu-label">Menu</span>
+      </button>
+    </div>
   </div>
 </header>
