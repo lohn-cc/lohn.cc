@@ -1,0 +1,16 @@
+{{- /* A self-hosted video from the page bundle (the CSP allows media from this site only; no
+  YouTube embeds). Usage: {{< video src="clip.mp4" poster="poster.jpg" width="720" height="1280"
+  label="What the video shows" caption="Optional caption" >}}. Give a transcript in the text too. */ -}}
+{{- $v := .Page.Resources.Get (.Get "src") -}}
+{{- if not $v }}{{ errorf "video: %q not found in page bundle of %s" (.Get "src") .Page.File.Path }}{{ end -}}
+{{- $poster := .Page.Resources.Get (.Get "poster") -}}
+{{- if not $poster }}{{ errorf "video: poster %q not found in page bundle of %s" (.Get "poster") .Page.File.Path }}{{ end -}}
+{{- $poster = $poster.Process "webp q80" -}}
+{{- if not (.Get "label") }}{{ errorf "video: label (what it shows) is required (%s)" .Page.File.Path }}{{ end -}}
+<figure class="video">
+  <video controls playsinline preload="none" poster="{{ $poster.RelPermalink }}" width="{{ .Get "width" }}" height="{{ .Get "height" }}" aria-label="{{ .Get "label" }}">
+    <source src="{{ $v.RelPermalink }}" type="{{ $v.MediaType.Type }}">
+    <a href="{{ $v.RelPermalink }}">Download the video</a>
+  </video>
+  {{- with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>
