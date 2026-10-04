@@ -1,18 +1,119 @@
-{{- /* schema.org Person for search engines — home page only. Built from data; no phone/private email. */ -}}
+{{- /*
+  schema.org Person + WebSite + Organization graph for search engines — home page only.
+  Built ONLY from data files and hugo.toml params; never put the phone number or private email here.
+  The Person @id ("https://www.lohn.cc/#person") is reused by jsonld-article.html so every Note
+  points back to the same entity.
+  JSON-LD is a non-executable data block, so it is allowed by the CSP (script-src only governs scripts that run).
+*/ -}}
 {{- $c := partial "career.html" . -}}
 {{- $cur := index (where $c.positions "current" true) 0 -}}
+{{- $cred := hugo.Data.credentials -}}
+{{- $personID := printf "%s#person" site.BaseURL -}}
+{{- $websiteID := printf "%s#website" site.BaseURL -}}
+{{- $companyID := printf "%s#organization" site.Params.company -}}
+
+{{- /* knowsAbout — competency categories plus the skill names inside them (data/expertise.yaml) */ -}}
+{{- $knows := slice -}}
+{{- range hugo.Data.expertise -}}
+  {{- $knows = $knows | append .category -}}
+  {{- range .items }}{{ $knows = $knows | append .name }}{{ end -}}
+{{- end -}}
+
+{{- /* sameAs — profiles that ARE this person (LinkedIn, GitHub…). Employer/company sites belong in worksFor. */ -}}
+{{- $sameAs := slice -}}
+{{- with site.Params.linkedin }}{{ $sameAs = $sameAs | append . }}{{ end -}}
+{{- range site.Params.profiles }}{{ $sameAs = $sameAs | append . }}{{ end -}}
+
+{{- /* alumniOf — one EducationalOrganization per distinct institution in credentials.education */ -}}
+{{- $alumni := slice -}}
+{{- $seen := slice -}}
+{{- range $cred.education -}}
+  {{- if not (in $seen .institution) -}}
+    {{- $seen = $seen | append .institution -}}
+    {{- $org := dict "@type" "EducationalOrganization" "name" .institution -}}
+    {{- with .location }}{{ $org = merge $org (dict "address" (dict "@type" "PostalAddress" "addressLocality" .)) }}{{ end -}}
+    {{- $alumni = $alumni | append $org -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* hasCredential — education + certifications. Competition entries are participation, not credentials.
+     Add `issuer_type: person` to a certification whose issuer is an individual (recognizedBy must be an Organization). */ -}}
+{{- $skipTypes := slice "International Competition" -}}
+{{- $creds := slice -}}
+{{- range $cred.education -}}
+  {{- $creds = $creds | append (dict
+      "@type" "EducationalOccupationalCredential"
+      "name" .degree
+      "credentialCategory" (cond (in (lower .degree) "diploma") "diploma" "degree")
+      "recognizedBy" (dict "@type" "EducationalOrganization" "name" .institution)
+      "dateCreated" (string .year)
+  ) -}}
+{{- end -}}
+{{- range $cred.certifications -}}
+  {{- if not (in $skipTypes .type) -}}
+    {{- $cr := dict
+        "@type" "EducationalOccupationalCredential"
+        "name" .title
+        "credentialCategory" "certificate"
+        "dateCreated" (string .year)
+    -}}
+    {{- if ne (.issuer_type | default "organization") "person" -}}
+      {{- $cr = merge $cr (dict "recognizedBy" (dict "@type" "Organization" "name" .issuer)) -}}
+    {{- end -}}
+    {{- $creds = $creds | append $cr -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* worksFor — current position from experience.yaml + own company */ -}}
+{{- $works := slice -}}
+{{- with $cur }}{{ $works = $works | append (dict "@type" "Organization" "name" .org) }}{{ end -}}
+{{- with site.Params.company }}{{ $works = $works | append (dict "@id" $companyID) }}{{ end -}}
+
 {{- $person := dict
-    "@context" "https://schema.org"
     "@type" "Person"
+    "@id" $personID
     "name" site.Params.name
-    "alternateName" site.Params.nickname
+    "alternateName" (slice site.Params.nickname (printf "%s %s" site.Params.nickname (index (last 1 (split site.Params.name " ")) 0)))
     "description" site.Params.description
     "url" site.BaseURL
     "email" (printf "mailto:%s" site.Params.email)
     "address" (dict "@type" "PostalAddress" "addressLocality" "Vientiane" "addressCountry" "LA")
-    "sameAs" (slice site.Params.linkedin site.Params.company)
-    "knowsAbout" (apply hugo.Data.expertise "index" "." "category")
+    "knowsAbout" $knows
+    "sameAs" $sameAs
+    "alumniOf" $alumni
+    "hasCredential" $creds
+    "worksFor" $works
 -}}
-{{- with $cur }}{{ $person = merge $person (dict "jobTitle" .role "worksFor" (dict "@type" "Organization" "name" .org)) }}{{ end -}}
-{{- with hugo.Data.credentials.education }}{{ $person = merge $person (dict "alumniOf" (dict "@type" "EducationalOrganization" "name" (index . 0).institution)) }}{{ end -}}
-<script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+{{- with $cur }}{{ $person = merge $person (dict "jobTitle" .role) }}{{ end -}}
+{{- with site.Params.image }}{{ with resources.Get . }}{{ $person = merge $person (dict "image" .Permalink) }}{{ end }}{{ end -}}
+
+{{- $graph := slice
+    (dict
+      "@type" "ProfilePage"
+      "@id" (printf "%s#profilepage" site.BaseURL)
+      "url" site.BaseURL
+      "name" .Title
+      "isPartOf" (dict "@id" $websiteID)
+      "mainEntity" (dict "@id" $personID)
+      "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+    )
+    $person
+    (dict
+      "@type" "WebSite"
+      "@id" $websiteID
+      "url" site.BaseURL
+      "name" site.Title
+      "inLanguage" site.Language.Locale
+      "publisher" (dict "@id" $personID)
+    )
+-}}
+{{- with site.Params.company -}}
+  {{- $graph = $graph | append (dict
+      "@type" "Organization"
+      "@id" $companyID
+      "name" (site.Params.companyName | default "Vangera Systems")
+      "url" .
+      "founder" (dict "@id" $personID)
+  ) -}}
+{{- end -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>

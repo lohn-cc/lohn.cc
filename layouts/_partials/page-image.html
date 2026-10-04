@@ -1,0 +1,23 @@
+{{- /*
+  Social-preview / schema image for a page. Returns a 1200×630 JPEG resource, or "" if there is none.
+  Opt-in ONLY — screenshots are never picked automatically, so an image showing personal data
+  (customer names, plate numbers…) can't end up on Facebook/LinkedIn by accident.
+    Front matter:  image: "cover.png"        # a file in the page bundle
+                   image_alt: "What it shows" # optional, defaults to the title
+                   image_anchor: "Top"        # optional crop anchor (Top, Center, Smart…)
+  Fallback: site.Params.ogImage — a PNG/JPG in assets/ (e.g. "images/og-default.png").
+  Usage: {{ with partial "page-image.html" . }}{{ .Permalink }}{{ end }}
+*/ -}}
+{{- $img := "" -}}
+{{- with .Params.image -}}
+  {{- $img = $.Resources.Get . -}}
+  {{- if not $img }}{{ errorf "image: %q not found in the page bundle of %s" . $.File.Path }}{{ end -}}
+{{- end -}}
+{{- if and (not $img) site.Params.ogImage -}}
+  {{- $img = resources.Get site.Params.ogImage -}}
+  {{- if not $img }}{{ errorf "params.ogImage: %q not found in assets/" site.Params.ogImage }}{{ end -}}
+{{- end -}}
+{{- with $img -}}
+  {{- $img = .Fill (printf "1200x630 %s jpg q82" ($.Params.image_anchor | default "Top")) -}}
+{{- end -}}
+{{- return $img -}}

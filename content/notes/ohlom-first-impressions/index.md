@@ -4,6 +4,8 @@ description: "My first impressions of Ohlom, the new all-in-one Lao app for chat
 date: 2026-10-03T18:00:00+07:00
 draft: false
 slug: "ohlom-first-impressions"
+image: "ohlom-homepage.jpg"
+image_alt: "Ohlom homepage — Everything starts with a conversation"
 build:
   publishResources: false
 ---

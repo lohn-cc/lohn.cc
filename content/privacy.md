@@ -1,6 +1,7 @@
 ---
 title: "Privacy policy"
 description: "How www.lohn.cc handles your data."
+lastmod: 2026-10-02
 ---
 _Last updated: 2 October 2026_
 
