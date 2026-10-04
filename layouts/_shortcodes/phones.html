@@ -1,0 +1,16 @@
+{{- /* One to three phone screenshots side by side, from the page bundle, converted to WebP.
+  Usage: {{< phones srcs="a.png, b.png" alts="What a shows | What b shows" caption="Optional caption" >}}
+  Every image needs alt text (same order as srcs, separated by "|"). */ -}}
+{{- $srcs := split (.Get "srcs") "," -}}
+{{- $alts := split (.Get "alts") "|" -}}
+{{- if or (lt (len $srcs) 1) (gt (len $srcs) 3) }}{{ errorf "phones: 1 to 3 images (%s)" .Page.File.Path }}{{ end -}}
+{{- if ne (len $srcs) (len $alts) }}{{ errorf "phones: one alt text per image (%s)" .Page.File.Path }}{{ end -}}
+<figure class="phones n{{ len $srcs }}">
+  {{- range $i, $src := $srcs }}
+  {{- $img := $.Page.Resources.Get (trim $src " ") -}}
+  {{- if not $img }}{{ errorf "phones: %q not found in page bundle of %s" $src $.Page.File.Path }}{{ end -}}
+  {{- $img = $img.Resize "540x webp q82" }}
+  <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ trim (index $alts $i) " " }}" loading="lazy" decoding="async">
+  {{- end }}
+  {{- with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

@@ -444,6 +444,16 @@ details.foundation > .early-career-box { margin-top: 8px; }
 .shot { margin: 1.8em 0; }
 .shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
 .shot figcaption { margin-top: 8px; color: var(--muted); font-size: 14.5px; text-align: center; }
+/* Phone screenshots side by side ({{< phones >}}) and self-hosted videos ({{< video >}}) */
+.phones { display: grid; gap: 12px; margin: 1.8em auto; align-items: start; }
+.phones.n1 { max-width: 270px; }
+.phones.n2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 540px; }
+.phones.n3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.phones img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.phones figcaption { grid-column: 1 / -1; color: var(--muted); font-size: 14.5px; text-align: center; }
+.video { margin: 1.8em auto; max-width: 340px; }
+.video video { display: block; width: 100%; height: auto; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
+.video figcaption { margin-top: 8px; color: var(--muted); font-size: 14.5px; text-align: center; }
 
 /* =====================================================================
    UI refinement: sans headings, icons, header tools, mobile menu, comfort
