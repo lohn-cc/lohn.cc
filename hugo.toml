@@ -23,8 +23,8 @@ timeZone = "Asia/Vientiane"
   # Google AdSense — leave disabled until the site is approved.
   # When enabling, the Content-Security-Policy in Caddy must also be relaxed for www.lohn.cc.
   [params.adsense]
-    enabled = false
-    client = ""          # e.g. "ca-pub-XXXXXXXXXXXXXXXX"
+    enabled = true
+    client = "ca-pub-8408966451102848"
 
 [permalinks]
   notes = "/notes/:slug/"
