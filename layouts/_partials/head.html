@@ -1,7 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $nonce := partial "script-nonce.html" . }}
 {{- with resources.Get "js/site.js" | minify | fingerprint }}
-<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
+<script{{ with $nonce }} nonce="{{ . }}"{{ end }} src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
 {{- end }}
 {{- /* Title: optional short `seo_title` in front matter; site suffix kept short so titles fit in search results (~60 chars). */}}
 {{- $title := .Params.seo_title | default .Title }}
@@ -47,8 +48,9 @@
 {{- with site.Params.adsense.client }}
 <meta name="google-adsense-account" content="{{ . }}">
 {{- end }}
-{{- if and site.Params.adsense.enabled site.Params.adsense.client }}
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.Params.adsense.client }}" crossorigin="anonymous"></script>
+{{- /* AdSense Auto ads: Notes articles only (never the home page, privacy or contact pages). */}}
+{{- if and site.Params.adsense.enabled site.Params.adsense.client .IsPage (eq .Section "notes") }}
+<script async nonce="{{ $nonce }}" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.Params.adsense.client }}" crossorigin="anonymous"></script>
 {{- end }}
 {{- if .IsHome }}
 {{ partial "jsonld-person.html" . }}

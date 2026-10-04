@@ -1,0 +1,13 @@
+{{- /*
+  Pages that can show ads (the Notes section, while AdSense is enabled) are served with Google's
+  nonce-based Content-Security-Policy — the only kind AdSense supports. Every <script> on those pages
+  must carry that response's nonce. The server fills it in: Caddy runs these pages through `templates`
+  (delimiters [[% %]]) and puts the same {http.request.uuid} in the CSP header.
+  Returns the attribute value to use, or "" on all other pages (they keep the strict 'self' CSP).
+  Usage: <script{{ with partial "script-nonce.html" . }} nonce="{{ . }}"{{ end }} src="…"></script>
+*/ -}}
+{{- $nonce := "" -}}
+{{- if and site.Params.adsense.enabled site.Params.adsense.client (eq .Section "notes") -}}
+  {{- $nonce = "[[% placeholder `http.request.uuid` %]]" -}}
+{{- end -}}
+{{- return $nonce -}}

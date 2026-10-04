@@ -21,8 +21,8 @@ timeZone = "Asia/Vientiane"
   foundationBefore = 2010 # roles starting before this year are grouped under "Foundation years"
 
   # Google AdSense. `client` alone only adds the site-verification <meta> tag (static/ads.txt lists
-  # the same publisher ID); no ad code loads. Keep `enabled = false` until the steps in AGENTS.md
-  # ("Google AdSense") are done — the Content-Security-Policy in Caddy must be relaxed first.
+  # the same publisher ID). `enabled = true` adds Auto ads to Notes articles (with the nonce the
+  # server's Notes CSP needs). Keep it false until the steps in AGENTS.md ("Google AdSense") are done.
   [params.adsense]
     enabled = false
     client = "ca-pub-8408966451102848"

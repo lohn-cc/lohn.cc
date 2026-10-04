@@ -6,9 +6,9 @@
   {{- if .Store.Get "hasAffiliate" }}
   <p class="disclosure">This article contains affiliate links (marked <sup>*</sup>). If you buy through them I may earn a small commission, at no extra cost to you.</p>
   {{- end }}
-  {{ partial "ad-slot.html" (dict "slot" .Params.ad_slot_top) }}
+  {{ partial "ad-slot.html" (dict "slot" .Params.ad_slot_top "page" .) }}
   <div class="prose">{{ $content }}</div>
-  {{ partial "ad-slot.html" (dict "slot" .Params.ad_slot_bottom) }}
+  {{ partial "ad-slot.html" (dict "slot" .Params.ad_slot_bottom "page" .) }}
   <p class="back"><a href="/notes/">← All notes</a></p>
 </article>
 {{ end }}

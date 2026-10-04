@@ -1,7 +1,8 @@
-{{- /* Renders an AdSense unit only when enabled in hugo.toml. Usage: partial "ad-slot.html" (dict "slot" "1234567890") */ -}}
+{{- /* Renders a manual AdSense unit (optional — Auto ads place ads by themselves) only when enabled in
+     hugo.toml. Usage: partial "ad-slot.html" (dict "slot" "1234567890" "page" .) */ -}}
 {{- if and site.Params.adsense.enabled site.Params.adsense.client .slot }}
 <aside class="ad" aria-label="Advertisement">
   <ins class="adsbygoogle" data-ad-client="{{ site.Params.adsense.client }}" data-ad-slot="{{ .slot }}" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script src="/js/ads-push.js"></script>
+  <script nonce="{{ partial "script-nonce.html" .page }}" src="/js/ads-push.js"></script>
 </aside>
 {{- end }}
