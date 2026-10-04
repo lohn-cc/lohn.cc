@@ -137,14 +137,20 @@ at the top of the article:
 ```
 Never add raw affiliate links. Only recommend products honestly and in context.
 
-### Google AdSense (not active yet)
-- Ads are allowed **only on Notes articles** — never on the home page, privacy, contact or thanks pages.
-- Done: `static/ads.txt` and the `google-adsense-account` verification `<meta>` (from `params.adsense.client`),
-  so Google can verify the site. Neither loads anything.
-- The ad code is switched off in `hugo.toml` (`params.adsense.enabled = false`). Enabling it requires, in this order:
-  (1) AdSense approval, (2) a Google-certified consent banner (CMP) for EEA/UK/CH visitors, (3) updating
-  `content/privacy.md` (ads and their cookies), (4) the owner relaxing the CSP on the server.
-  Do not enable it on your own: with the current CSP the browser blocks the ad script.
+### Google AdSense — Auto ads on Notes articles (prepared, not active yet)
+- The owner chose **Auto ads on Notes articles only** — never on the home page (CV), privacy, contact or thanks
+  pages. The ad script is added only to Notes article pages (`layouts/_partials/head.html`); Google places the ads.
+  Manual units (`ad_slot_top` / `ad_slot_bottom`) are optional.
+- Done: `static/ads.txt`, the `google-adsense-account` verification `<meta>`, and the Advertising section of
+  `content/privacy.md`. Google's consent message for EEA/UK/CH visitors is set up in AdSense
+  (Privacy & messaging), not in this repo.
+- **CSP:** Google supports only a nonce-based CSP for AdSense. While `params.adsense.enabled = true`, every
+  `<script>` in the Notes section carries `nonce="[[% placeholder `http.request.uuid` %]]"` (partial
+  `script-nonce.html`). The server runs Notes pages through Caddy `templates` (delimiters `[[% %]]`) and sends
+  `script-src 'nonce-{http.request.uuid}' 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:` there; all other
+  pages keep the strict `'self'` CSP. Any new script on Notes pages must use the partial, or it will be blocked.
+- Switching on (owner only): AdSense approval → consent message published in AdSense → server CSP change →
+  `params.adsense.enabled = true`. Do not enable it on your own: without the server change the ad script is blocked.
 
 ## 5a. SEO — keep these true
 
