@@ -4,6 +4,8 @@ description: "In 2011 I built the website of the Institut Pasteur du Laos on Wor
 date: 2026-10-03T09:00:00+07:00
 draft: false
 slug: "pasteur-la-wordpress-since-2011"
+image: "pasteur-la-2026.jpg"
+image_alt: "The Institut Pasteur du Laos website in 2026"
 build:
   publishResources: false
 ---

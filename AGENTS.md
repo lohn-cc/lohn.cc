@@ -87,7 +87,12 @@ This means:
 | Projects | `data/projects.yaml` |
 | Computed career figures (years, sectors, organisations) | `layouts/_partials/career.html` |
 | One timeline entry (highlights + "Show all") | `layouts/_partials/position.html` |
-| Search-engine Person data (home only) | `layouts/_partials/jsonld-person.html` |
+| Search-engine data: Person, profile page, website (home only) | `layouts/_partials/jsonld-person.html` |
+| Search-engine data: BlogPosting + breadcrumbs (Notes articles) | `layouts/_partials/jsonld-article.html` |
+| Social-preview image (opt-in per page) | `layouts/_partials/page-image.html` |
+| Title, description, canonical, Open Graph tags | `layouts/_partials/head.html` |
+| robots.txt (sitemap is Hugo's built-in `/sitemap.xml`) | `layouts/robots.txt` |
+| AdSense seller declaration | `static/ads.txt` |
 | Machine-readable profile for vangera.systems | `layouts/home.profile.json` → `/profile.json` |
 | Notes section intro + "upcoming" topics | `content/notes/_index.md` |
 | Articles | `content/notes/<slug>.md` → `/notes/<slug>/` |
@@ -108,10 +113,18 @@ title: "Running your own email: DNS, SPF, DKIM and DMARC explained"
 description: "One or two sentences for search results and the notes list."
 date: 2026-10-15
 draft: false
+# seo_title: "Shorter title"    # optional: the <title> if the real one is too long (≤60 chars with the suffix)
+# lastmod: 2026-11-02           # set when you update an article substantially (sitemap + dateModified)
+# image: "cover.jpg"            # optional social-preview image from the page bundle (see below)
+# image_alt: "What it shows"
+# keywords: ["DNS", "email"]
+# robots: "noindex"             # only for pages that must stay out of search results
 # ad_slot_top: "1234567890"     # only once AdSense is approved and enabled
 # ad_slot_bottom: "1234567890"
 ---
 ```
+- **Social-preview image is opt-in:** only the file named in `image:` is used (cropped to 1200×630 JPEG). Never pick
+  a screenshot that shows personal data (customer names, plate numbers, phone numbers…).
 - Write from real experience; practical, step-by-step, with code blocks where useful.
 - Use `##` / `###` headings (the page title is the only `h1`).
 - Never publish anything the owner hasn't reviewed — create articles with `draft: true` unless told otherwise.
@@ -126,10 +139,38 @@ Never add raw affiliate links. Only recommend products honestly and in context.
 
 ### Google AdSense (not active yet)
 - Ads are allowed **only on Notes articles** — never on the home page, privacy, contact or thanks pages.
-- It's switched off in `hugo.toml` (`params.adsense.enabled = false`). Enabling it requires, in this order:
+- Done: `static/ads.txt` and the `google-adsense-account` verification `<meta>` (from `params.adsense.client`),
+  so Google can verify the site. Neither loads anything.
+- The ad code is switched off in `hugo.toml` (`params.adsense.enabled = false`). Enabling it requires, in this order:
   (1) AdSense approval, (2) a Google-certified consent banner (CMP) for EEA/UK/CH visitors, (3) updating
-  `content/privacy.md`, (4) an `ads.txt` in `static/`, (5) the owner relaxing the CSP on the server.
-  Do not enable it on your own.
+  `content/privacy.md` (ads and their cookies), (4) the owner relaxing the CSP on the server.
+  Do not enable it on your own: with the current CSP the browser blocks the ad script.
+
+## 5a. SEO — keep these true
+
+**Structured data (JSON-LD).** Built only from the data files and `hugo.toml`; JSON-LD is a data block, so the CSP
+allows it. Home: one `@graph` with `ProfilePage` → `Person` (`#person`) → `WebSite`, plus Vangera Systems as an
+`Organization`. The Person has `knowsAbout` (data/expertise.yaml), `sameAs` (LinkedIn + `params.profiles` — only
+profiles that *are* the owner; employer and company sites go in `worksFor`), `alumniOf` and `hasCredential`
+(data/credentials.yaml; competitions are not credentials; `issuer_type: person` when the issuer is an individual).
+Notes articles: `BlogPosting` whose author and publisher are the same `#person`, plus a `BreadcrumbList`.
+Check changes with Google's Rich Results Test and validator.schema.org.
+
+**Checklist for every page or article**
+- [ ] `<title>` ≤ ~60 characters including " — Lohn Xongmixay" (use `seo_title` if the real title is longer);
+  unique per page; the main words first.
+- [ ] `description` 120–160 characters: what the reader gets, in plain words (longer ones are cut in results).
+- [ ] Exactly one `h1` (the page title), then `h2` for sections and `h3` inside them — never skip a level for
+  looks (style with CSS instead). Notes list titles are `h2`.
+- [ ] Social preview: `og:title`, `og:description`, `og:url`, `og:type` (article for Notes) are automatic; add
+  `image` + `image_alt` to an article when there's a suitable picture (else the card has no image).
+- [ ] Canonical URL is automatic; don't publish the same text under two URLs (use `aliases` when moving a page).
+- [ ] Pages that shouldn't be found: `robots: "noindex"` (not a robots.txt `Disallow`, which hides the noindex).
+- [ ] Images: descriptive `alt`, width and height, WebP; descriptive file names.
+- [ ] Link to related Notes and to the home page sections with meaningful link text (not "click here").
+- [ ] After a substantial update, set `lastmod` so the sitemap and `dateModified` tell search engines.
+- [ ] The sitemap needs no settings: Hugo writes `/sitemap.xml` with `lastmod` (Google ignores
+  `changefreq`/`priority`); drafts and pages with `sitemap: { disable: true }` stay out.
 
 ## 5b. profile.json — consumed by www.vangera.systems
 

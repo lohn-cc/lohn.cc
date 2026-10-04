@@ -1,5 +1,10 @@
+# robots.txt for {{ site.BaseURL }} - generated from layouts/robots.txt
+# Pages that must stay out of search results use <meta name="robots" content="noindex">
+# (front matter `robots: "noindex"`) instead of Disallow, so crawlers can actually see the noindex.
+
 User-agent: *
 Allow: /
-Disallow: /contact/
+# Contact-form backend endpoints - nothing to index.
+Disallow: /api/
 
 Sitemap: {{ "sitemap.xml" | absURL }}

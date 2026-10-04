@@ -14,14 +14,18 @@ timeZone = "Asia/Vientiane"
   location = "Vientiane, Lao PDR"
   linkedin = "https://www.linkedin.com/in/lohn-xongmixay"
   company = "https://www.vangera.systems/"
+  companyName = "Vangera Systems"
+  titleSuffix = "Lohn Xongmixay"   # appended to every page title except the home page
+  profiles = []                   # extra sameAs URLs that ARE you, e.g. a GitHub profile
   highlights = 3          # bullets shown per role before "Show all"
   foundationBefore = 2010 # roles starting before this year are grouped under "Foundation years"
 
-  # Google AdSense — leave disabled until the site is approved.
-  # When enabling, the Content-Security-Policy in Caddy must also be relaxed for www.lohn.cc.
+  # Google AdSense. `client` alone only adds the site-verification <meta> tag (static/ads.txt lists
+  # the same publisher ID); no ad code loads. Keep `enabled = false` until the steps in AGENTS.md
+  # ("Google AdSense") are done — the Content-Security-Policy in Caddy must be relaxed first.
   [params.adsense]
     enabled = false
-    client = ""          # e.g. "ca-pub-XXXXXXXXXXXXXXXX"
+    client = "ca-pub-8408966451102848"
 
 [permalinks]
   notes = "/notes/:slug/"
@@ -40,5 +44,6 @@ timeZone = "Asia/Vientiane"
 [markup.goldmark.renderer]
   unsafe = false
 
+# Google ignores changefreq and priority; only an accurate <lastmod> matters.
 [sitemap]
-  changeFreq = "monthly"
+  filename = "sitemap.xml"
