@@ -44,6 +44,9 @@
 {{- with site.GetPage "/notes" }}{{ with .OutputFormats.Get "rss" }}
 <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }} — Notes">
 {{- end }}{{ end }}
+{{- with site.Params.adsense.client }}
+<meta name="google-adsense-account" content="{{ . }}">
+{{- end }}
 {{- if and site.Params.adsense.enabled site.Params.adsense.client }}
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.Params.adsense.client }}" crossorigin="anonymous"></script>
 {{- end }}

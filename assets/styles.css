@@ -310,6 +310,7 @@ h3 { font-size: 20px; margin: 0 0 8px; }
 .topics li { margin: .35em 0; }
 .post-list { list-style: none; padding: 0; margin: 0 0 1em; }
 .post-list li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.post-list h2 { margin: 0; font: inherit; line-height: 1.35; }
 .post-list a { font-family: var(--display); font-size: 20px; font-weight: 600; text-decoration: none; }
 .post-list time { display: block; color: var(--muted); font-size: 14px; }
 .post-list p { margin: 4px 0 0; color: var(--muted); }

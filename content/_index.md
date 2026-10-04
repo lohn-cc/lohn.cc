@@ -1,5 +1,6 @@
 ---
 title: "Nakhonekham (Lohn) Xongmixay — IT & Facilities Leader · Systems & Biomedical Engineer"
+seo_title: "Nakhonekham (Lohn) Xongmixay — IT & Facilities Leader, Laos" # <title> in search results (≤60 chars)
 heading: "Over two decades building, operating, and securing mission-critical IT infrastructure and facilities in Laos."
 lede: "From pre-opening luxury hospitality and pediatric healthcare systems to multi-site factory automation and biosafety research laboratories — leading technical teams, optimizing operations, and delivering dependable technology on time and within budget."
 ---
