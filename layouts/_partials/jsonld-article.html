@@ -1,0 +1,46 @@
+{{- /*
+  schema.org BlogPosting + BreadcrumbList for Notes articles (layouts/notes/page.html pages).
+  Author and publisher are the same Person as on the home page (shared @id), so search engines
+  connect every Note to the profile. Image comes from partial "page-image.html" (opt-in, see there).
+*/ -}}
+{{- $personID := printf "%s#person" site.BaseURL -}}
+{{- $person := dict
+    "@type" "Person"
+    "@id" $personID
+    "name" site.Params.name
+    "alternateName" site.Params.nickname
+    "url" site.BaseURL
+-}}
+{{- $notes := site.GetPage "/notes" -}}
+{{- $desc := .Description | default (.Summary | plainify | truncate 160) -}}
+{{- $iso := "2006-01-02T15:04:05Z07:00" -}}
+
+{{- $post := dict
+    "@type" "BlogPosting"
+    "@id" (printf "%s#article" .Permalink)
+    "headline" .Title
+    "description" $desc
+    "url" .Permalink
+    "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+    "datePublished" (.Date.Format $iso)
+    "dateModified" (.Lastmod.Format $iso)
+    "inLanguage" site.Language.Locale
+    "wordCount" .WordCount
+    "author" $person
+    "publisher" (dict "@id" $personID)
+    "isPartOf" (dict "@type" "Blog" "@id" (printf "%s#blog" $notes.Permalink) "name" (printf "%s — %s" $notes.Title site.Title) "url" $notes.Permalink)
+-}}
+{{- with partial "page-image.html" . -}}
+  {{- $post = merge $post (dict "image" (dict "@type" "ImageObject" "url" .Permalink "width" .Width "height" .Height)) -}}
+{{- end -}}
+{{- with .Params.keywords }}{{ $post = merge $post (dict "keywords" (delimit . ", ")) }}{{ end -}}
+
+{{- $crumbs := dict
+    "@type" "BreadcrumbList"
+    "itemListElement" (slice
+      (dict "@type" "ListItem" "position" 1 "name" "Home" "item" site.BaseURL)
+      (dict "@type" "ListItem" "position" 2 "name" $notes.Title "item" $notes.Permalink)
+      (dict "@type" "ListItem" "position" 3 "name" .Title)
+    )
+-}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" (slice $post $crumbs) | jsonify | safeJS }}</script>
