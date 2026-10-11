@@ -188,7 +188,7 @@ Check changes with Google's Rich Results Test and validator.schema.org.
 `https://www.lohn.cc/profile.json` (template `layouts/home.profile.json`) is fetched by the vangera.systems build to
 render its "Founder's track record". Treat it as a public API, **schema version 1**: you may add keys, but do not
 rename or remove existing keys (`person`, `summary`, `sectors`, `positions`, `projects`, `education`, `training`,
-`certifications`) without updating vangera.systems at the same time. Never put the phone number or private email in it.
+`certifications`, `early_career`) without updating vangera.systems at the same time. Never put the phone number or private email in it.
 
 ## 6. Contact form — do not break this contract
 
