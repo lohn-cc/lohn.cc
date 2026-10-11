@@ -72,10 +72,7 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 650; color: var(--ink); text-decoration: none; letter-spacing: .01em; }
-.mono {
-  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px;
-  background: var(--accent); color: var(--accent-ink); font-family: var(--display); font-size: 19px;
-}
+.logo { width: 32px; height: 32px; flex: none; }
 nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; overflow-x: auto; scrollbar-width: none; }
 nav a { display: block; padding: 6px 10px; border-radius: 8px; color: var(--muted); text-decoration: none; font-size: 15px; white-space: nowrap; }
 nav a:hover { color: var(--ink); background: var(--accent-soft); }
@@ -464,7 +461,6 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -.012em; line-height: 1.22; }
 h1 { letter-spacing: -.02em; }
 .what h3, .comp-head h3, .cred-card h3, .card h3 { font-weight: 650; letter-spacing: -.005em; }
 .stat-val { font-weight: 750; letter-spacing: -.02em; }
-.mono { font-weight: 750; font-size: 17px; }
 .post-list a { font-weight: 650; }
 .f-title { font-weight: 650; }
 
@@ -539,3 +535,18 @@ nav a { display: flex; align-items: center; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* Visit statistics: asks before Google Analytics loads (assets/js/stats.js). */
+.consent {
+  position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 20;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px;
+  max-width: 760px; margin: 0 auto; padding: 14px 18px;
+  border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink);
+  box-shadow: var(--shadow);
+}
+.consent[hidden] { display: none; }
+.consent p { flex: 1 1 260px; margin: 0; font-size: 15.5px; }
+.consent-actions { display: flex; gap: 10px; }
+.consent .btn { min-height: 44px; }
+.consent-open { white-space: nowrap; }
+.link-btn { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }

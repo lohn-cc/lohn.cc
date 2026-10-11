@@ -4,6 +4,10 @@
 {{- with resources.Get "js/site.js" | minify | fingerprint }}
 <script{{ with $nonce }} nonce="{{ . }}"{{ end }} src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
 {{- end }}
+{{- /* Visit statistics: the script only asks; Google Analytics loads after "Allow" (see the footer). */}}
+{{- if site.Params.analytics.id }}{{ with resources.Get "js/stats.js" | minify | fingerprint }}
+<script defer{{ with $nonce }} nonce="{{ . }}"{{ end }} src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
+{{- end }}{{ end }}
 {{- /* Title: optional short `seo_title` in front matter; site suffix kept short so titles fit in search results (~60 chars). */}}
 {{- $title := .Params.seo_title | default .Title }}
 {{- if not .IsHome }}{{ $title = printf "%s — %s" $title (site.Params.titleSuffix | default site.Title) }}{{ end }}
@@ -39,6 +43,7 @@
 <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14161a" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 {{- with resources.Get "styles.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
 {{- end }}
