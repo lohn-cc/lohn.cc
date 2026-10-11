@@ -1,9 +1,9 @@
 ---
 title: "Privacy policy"
 description: "How www.lohn.cc handles your data."
-lastmod: 2026-10-04
+lastmod: 2026-10-12
 ---
-_Last updated: 4 October 2026_
+_Last updated: 12 October 2026_
 
 This website is run by Lohn. It is designed to collect as little personal data as possible.
 
@@ -15,9 +15,21 @@ This website is run by Lohn. It is designed to collect as little personal data a
 
 **Server logs.** Like any web server, this site records technical access logs (IP address, date and time, page requested, browser type). They are used for security and troubleshooting and are rotated automatically.
 
+## Visit statistics
+
+To see which pages are read and how people find this site, it can count visits with **Google Analytics**, but **only if you allow it**. A bar at the bottom of the page asks first. Until you choose **Allow**, nothing from Google Analytics loads and no statistics cookies are set. Your choice is remembered in your browser (not in a cookie), and you can change it at any time with **Visit statistics** at the bottom of every page. Choosing **No thanks** later turns the statistics off and removes their cookies.
+
+If you allow it:
+
+- Google Analytics records the pages you view, how you arrived (for example from a search or a link), your approximate location (country and city, worked out from your IP address), your device type, browser, screen size and language, and how long you stay.
+- It sets two cookies, `_ga` and `_ga_<id>`, which last up to two years unless you remove them.
+- Google says Google Analytics 4 doesn't store IP addresses. Google Signals and the advertising features are turned off, so this data isn't used for ads.
+- Google processes the data on its servers, which may be outside Laos. See [Google's Privacy Policy](https://policies.google.com/privacy) and [how Google uses data from sites that use its services](https://policies.google.com/technologies/partner-sites).
+- I see only totals and trends in Google Analytics, not who you are.
+
 ## Advertising on Notes articles
 
-Articles in the [Notes](/notes/) section may show ads from **Google AdSense**. The home page, the contact form and this page never show ads, and the rest of this site sets no cookies and uses no analytics.
+Articles in the [Notes](/notes/) section may show ads from **Google AdSense**. The home page, the contact form and this page never show ads, and the rest of this site sets no advertising cookies. Visit statistics are separate and only run if you allow them (see below).
 
 On an article that shows ads:
 

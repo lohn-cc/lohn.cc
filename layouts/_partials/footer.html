@@ -1,6 +1,15 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <span>© {{ now.Year }} Nakhonekham (Lohn) Xongmixay · <a href="{{ site.Params.company }}">Vangera Systems</a></span>
-    <span><a href="/notes/">Notes</a> · <a href="/privacy/">Privacy</a></span>
+    <span><a href="/notes/">Notes</a> · <a href="/privacy/">Privacy</a>{{ if site.Params.analytics.id }}<span class="consent-open" data-consent-open hidden> · <button type="button" class="link-btn">Visit statistics</button></span>{{ end }}</span>
   </div>
 </footer>
+{{- with site.Params.analytics.id }}
+<div class="consent" id="consent" data-ga="{{ . }}" role="region" aria-label="Visit statistics" hidden>
+  <p>May this site count your visit with Google Analytics? It uses cookies, and only if you allow it. <a href="/privacy/#visit-statistics">Details</a></p>
+  <div class="consent-actions">
+    <button type="button" class="btn btn-primary" data-consent="yes">Allow</button>
+    <button type="button" class="btn btn-ghost" data-consent="no">No thanks</button>
+  </div>
+</div>
+{{- end }}

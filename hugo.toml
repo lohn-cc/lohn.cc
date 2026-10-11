@@ -47,3 +47,8 @@ timeZone = "Asia/Vientiane"
 # Google ignores changefreq and priority; only an accurate <lastmod> matters.
 [sitemap]
   filename = "sitemap.xml"
+
+[params.analytics]
+  # Google Analytics 4, loaded only after the visitor allows it (footer bar, assets/js/stats.js).
+  # The server's Content-Security-Policy must allow Google Analytics too. Empty = off.
+  id = "G-XW5EKTCQ20"
