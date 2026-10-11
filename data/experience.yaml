@@ -1,6 +1,8 @@
 # Career history — single source of truth for www.lohn.cc and www.vangera.systems (via /profile.json).
 # Most recent first. Period format: "Mon YYYY – Mon YYYY" or "Mon YYYY – Present".
 # Order bullets by importance: the first 3 are shown, the rest sit behind "Show all".
+# early_career: kind is "Part-time" or "Volunteering". Use the same org name as in positions for the same
+# organisation, so vangera.systems shows it as one card.
 
 positions:
 
@@ -245,9 +247,10 @@ positions:
   group: "Ownership: Endymion Limited"
   location: Vientiane, Lao PDR
   tag: "Enterprise, Public & NGO"
-  summary: Managed the campus IT infrastructure, network security and web presence.
+  summary: "Promoted from the college's part-time Night Librarian and Receptionist (2002 – 2005) to IT Manager: ran the campus IT infrastructure, network security and web presence, and taught computer classes."
   bullets:
   - Designed, installed and administered the campus network, including a Linux firewall server and wireless network.
+  - Taught computer and IT classes to groups at the college.
   - Installed and maintained computer hardware and software across administrative and academic areas.
   - Designed, set up and administered the adsvientiane.com website.
 
@@ -277,17 +280,20 @@ early_career:
 - period: Mar 2001 – Dec 2005 (Part-time)
   role: Computer Technician
   org: Max MV Computer Shop
+  kind: Part-time
   location: Vientiane, Lao PDR
   text: Advised customers, built custom PCs, installed operating systems and drivers, and repaired hardware.
 
 - period: Jan 2002 – May 2005 (Part-time)
   role: Night Librarian and Receptionist
-  org: Vientiane College (Endymion Limited)
+  org: Vientiane College
+  kind: Part-time
   location: Vientiane, Lao PDR
-  text: Ran the evening library, handled enquiries and registered students.
+  text: "Ran the evening library, handled enquiries and registered students, then became the college's IT Manager (Jun 2005)."
 
-- period: Sep 1999 – Dec 2004 (Part-time)
+- period: Sep 1999 – Dec 2004 (Volunteer)
   role: Volunteering for Green Ant Project
-  org: Participatory Development Training Center (PDETC)
+  org: Participatory Development Training Center (PADETC)
+  kind: Volunteering
   location: Vientiane, Lao PDR
   text: "Ran children's outreach activities, organic-farming education and youth community programmes."

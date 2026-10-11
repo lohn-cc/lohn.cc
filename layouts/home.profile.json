@@ -24,4 +24,5 @@
     "education" $cred.education
     "training" $cred.training
     "certifications" $cred.certifications
+    "early_career" (hugo.Data.experience.early_career | default slice)
 ) -}}
