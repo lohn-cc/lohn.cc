@@ -37,14 +37,14 @@ Approvals are a feature each space switches on. The owner and admins now have a 
 
 ## Chat: reactions, emoji and videos
 
-- **Reactions.** Long-press a message and choose 👍 ❤️ 😂 😮 😢 🙏, or any other emoji. Each person has one reaction per message. Tap the reactions to see who reacted.
-- **Emoji.** An emoji button in the message box opens every emoji by group, with your recent ones first and a search.
+- **Reactions.** Long-press a message: the chat dims, the emoji float just above the message and its options just below. Choose 👍 ❤️ 😂 😮 😢 🙏, or any other emoji. Each person has one reaction per message. Reactions show as a small badge on the message's edge; tap it to see who reacted.
+- **Emoji.** An emoji button in the message box opens every emoji by group, with your recent ones first and a search. On a phone the panel takes the keyboard's place, and a keyboard button switches back.
 - **Camera.** On a phone, Attach → Camera opens the phone's camera for a photo or a video. Videos of up to 100 MB play inside the chat when you tap them. LohnCC redraws photos to remove the location stored in them, but it sends videos as they are. A video can still hold where it was recorded, and the Privacy Policy says so.
 - **A notifications inbox** behind a bell keeps notifications for 90 days, except new chat messages, which stay in the chats.
 - **Files on devices.** Photos, files and voice messages stay on the server only until everyone in the chat has them, 30 days at most. After that they live on the phones that saved them, and anyone can save one to their phone.
 - **Calls.** On a computer you can now choose where the sound goes, such as the speakers or a headset. I also fixed a bug where the caller's screen kept showing "Calling…" after the call was answered. A web page can't switch a phone between its earpiece and loudspeaker, so a Speaker button will come with the Android app.
 
-{{< phones srcs="emoji.png, inbox.png, features.png" alts="The emoji panel open below a chat, with Thank you and a smiling face with hearts typed in the message box | The notifications inbox with one notification: Noy asks for your approval in Mekong Coffee | A space's Features page with Requests and approvals turned on and All members allowed to send requests" caption="The emoji panel, the notifications inbox, and a space's features. Example data." >}}
+{{< phones srcs="emoji.png, inbox.png, features.png" alts="The emoji panel open where the phone's keyboard was, with Thank you and a smiling face with hearts typed in the message box | The notifications inbox with one notification: Noy asks for your approval in Mekong Coffee | A space's Features page with Requests and approvals turned on and All members allowed to send requests" caption="The emoji panel, the notifications inbox, and a space's features. Example data." >}}
 
 ## Login with LohnCC
 
