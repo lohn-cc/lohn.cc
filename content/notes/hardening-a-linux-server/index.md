@@ -2,8 +2,8 @@
 title: "Hardening a Linux server for production, step by step"
 seo_title: "Hardening a Linux server, step by step"
 description: "How I harden a new Linux server before anything goes on it: SSH keys only, firewall, fail2ban, kernel settings, SELinux, updates, separate users and alerts."
-date: 2026-10-12T23:00:00+07:00
-draft: true
+date: 2026-10-12T22:40:00+07:00
+draft: false
 slug: "hardening-a-linux-server"
 keywords: ["Linux server hardening", "SSH", "firewalld", "fail2ban", "SELinux", "sysctl", "Rocky Linux", "rootless Podman"]
 ---
