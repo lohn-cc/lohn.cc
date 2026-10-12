@@ -2,8 +2,8 @@
 title: "Running your own email: DNS, SPF, DKIM and DMARC explained"
 seo_title: "Own email: SPF, DKIM, DMARC and MTA-STS"
 description: "The DNS records a self-hosted mail server needs, and why: reverse DNS, MX, SPF, DKIM, DMARC, MTA-STS, TLS reports and DNSSEC, with the real records for lohn.cc."
-date: 2026-10-12T21:00:00+07:00
-draft: true
+date: 2026-10-12T21:22:00+07:00
+draft: false
 slug: "running-your-own-email"
 keywords: ["self-hosted email", "SPF", "DKIM", "DMARC", "MTA-STS", "TLS-RPT", "DNS", "Mailcow"]
 ---
